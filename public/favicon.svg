@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Background: Blue Rounded Square (Tailwind Blue-600) -->
+  <rect width="128" height="128" rx="30" fill="#2563EB" />
+  
+  <!-- Icon: Code Brackets (White) -->
+  <text x="64" y="82" font-family="monospace" font-size="64" font-weight="bold" fill="white" text-anchor="middle">
+    &lt;/&gt;
+  </text>
+</svg>
+```
+
+### **Step 2: Update your HTML**
+1.  Open `index.html` (in your root folder).
+2.  Find the `<link rel="icon" ... >` tag inside `<head>`.
+3.  Change it to:
+    ```html
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
