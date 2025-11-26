@@ -7,11 +7,3 @@
     &lt;/&gt;
   </text>
 </svg>
-```
-
-### **Step 2: Update your HTML**
-1.  Open `index.html` (in your root folder).
-2.  Find the `<link rel="icon" ... >` tag inside `<head>`.
-3.  Change it to:
-    ```html
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
