@@ -6,7 +6,7 @@ export const personalInfo = {
   location: "Lagos, Nigeria",
   phone: "+234 706 780 1635",
   email: "babatundemaadan@gmail.com",
-  github: "https://mafresh-bb.github.io/Maadan-Abdulyekeen-Portfolio/",
+  github: "https://github.com/Mafresh-BB",
   avatar: "/profile.jpg", 
   about: "Creative and performance-driven Frontend Engineer with expertise in HTML, CSS, JavaScript, React, and Tailwind CSS, delivering responsive, accessible, and visually engaging web applications. Skilled in translating UI/UX concepts into scalable, high-performance interfaces that improve user engagement and site efficiency. Adept at problem-solving, API integration, and collaborative version control using Git and GitHub."
 };
@@ -14,7 +14,7 @@ export const personalInfo = {
 export const skills = [
   "React.js & Hooks", "TypeScript (DTOs)", "Vite", "Tailwind CSS", 
   "Framer Motion", "Service Layer Pattern", "Git/GitHub", "SEO Optimization",
-  "API Integration", "Web Performance", "Accessibility (WCAG)"
+  "API Integration", "Web Performance", "Accessibility (WCAG)", "Responsive Design", "WordPress"
 ];
 
 export const experiences: Experience[] = [
@@ -62,7 +62,7 @@ export const projects: Project[] = [
       "Overhauled the Admin Dashboard into a mobile-first design, enabling staff to manage bookings from any device."
     ],
     image: "/ensii.jpg",
-    link: "https://www.ensii-safaris.com" 
+    link: "https://ensiisafaris.ca/" 
   },
   {
     title: "Personal Portfolio Website",
@@ -76,13 +76,13 @@ export const projects: Project[] = [
   },
   {
     title: "JTF Foundation NGO Website",
-    tech: ["React", "CMS", "SEO"],
+    tech: ["WordPress", "CMS", "SEO"],
     description: [
       "Designed a full 5-page non-profit website integrating dynamic blog content and gallery features.",
       "Improved accessibility, performance, and mobile experience across all devices."
     ],
     image: "/project2.jpg",
-    link: "https://www.jtf-foundation.org"
+    link: "https://www.jtffoundation.org"
   }
 ];
 
