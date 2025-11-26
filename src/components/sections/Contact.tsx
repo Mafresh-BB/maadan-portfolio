@@ -1,0 +1,55 @@
+import { Mail, Phone, Github } from 'lucide-react';
+import { personalInfo } from '../../data/content';
+
+export const Contact = () => {
+  return (
+    <section id="contact" className="py-24 bg-[#0B1120] text-white relative overflow-hidden">
+      {/* Abstract Background */}
+      <div className="absolute top-0 right-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+         <div className="absolute -top-20 -right-20 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+         <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-600 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <h2 className="text-4xl font-bold mb-6 tracking-tight">Let's Build Something Amazing</h2>
+        <p className="text-gray-400 mb-12 max-w-2xl mx-auto text-lg leading-relaxed">
+          I'm currently available for freelance work and full-time positions. 
+          If you have a project that needs a creative and technical touch, let's connect.
+        </p>
+        
+        <div className="grid md:grid-cols-3 gap-6 text-center">
+          <a href={`mailto:${personalInfo.email}`} className="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all group hover:-translate-y-1">
+            <div className="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-500 transition-colors">
+              <Mail size={28} className="text-blue-400 group-hover:text-white transition-colors" />
+            </div>
+            <div className="text-sm text-gray-400 mb-2 uppercase tracking-wider font-semibold">Email Me</div>
+            <div className="font-medium wrap-break-word text-white">{personalInfo.email}</div>
+          </a>
+          
+          <a href={`tel:${personalInfo.phone}`} className="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all group hover:-translate-y-1">
+            <div className="w-14 h-14 bg-green-500/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-500 transition-colors">
+              <Phone size={28} className="text-green-400 group-hover:text-white transition-colors" />
+            </div>
+            <div className="text-sm text-gray-400 mb-2 uppercase tracking-wider font-semibold">Call Me</div>
+            <div className="font-medium text-white">{personalInfo.phone}</div>
+          </a>
+
+          <a href={personalInfo.github} target="_blank" rel="noreferrer" className="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all group hover:-translate-y-1">
+            <div className="w-14 h-14 bg-purple-500/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-500 transition-colors">
+              <Github size={28} className="text-purple-400 group-hover:text-white transition-colors" />
+            </div>
+            <div className="text-sm text-gray-400 mb-2 uppercase tracking-wider font-semibold">Follow Me</div>
+            <div className="font-medium text-white">GitHub Profile</div>
+          </a>
+        </div>
+
+        <footer className="mt-24 pt-8 border-t border-white/10 text-gray-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+          <p>&copy; {new Date().getFullYear()} Abdulyekeen Maadan. All rights reserved.</p>
+          <p className="flex items-center gap-2">
+            Made with <span className="text-red-500">❤</span> and React
+          </p>
+        </footer>
+      </div>
+    </section>
+  );
+};
