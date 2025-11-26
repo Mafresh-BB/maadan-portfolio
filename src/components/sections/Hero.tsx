@@ -1,4 +1,4 @@
-import { Mail, Github, MapPin, Globe, Code2, Download } from 'lucide-react';
+import { Mail, MapPin, Globe, Code2, Download } from 'lucide-react';
 import { personalInfo } from '../../data/content';
 
 export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
