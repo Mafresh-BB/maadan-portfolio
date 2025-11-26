@@ -1,4 +1,4 @@
-import { Mail, Github, MapPin, Globe, Code2 } from 'lucide-react';
+import { Mail, Github, MapPin, Globe, Code2, Download } from 'lucide-react';
 import { personalInfo } from '../../data/content';
 
 export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
@@ -29,7 +29,7 @@ export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed max-w-lg mx-auto md:mx-0 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
-                Building responsive, accessible, and visually engaging web applications with React, TypeScript, and modern design principles.
+                {personalInfo.about}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200">
@@ -41,13 +41,13 @@ export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
                   Contact Me
                 </button>
                 <a 
-                  href={personalInfo.github} 
+                  href={personalInfo.resumePdf} 
                   target="_blank" 
                   rel="noreferrer"
                   className="px-8 py-4 bg-white text-gray-800 font-bold rounded-xl border border-gray-200 hover:bg-gray-50 transition-all hover:border-gray-300 hover:-translate-y-1 flex items-center justify-center gap-2 shadow-sm"
                 >
-                  <Github size={20} />
-                  GitHub
+                  <Download size={20} />
+                  Download CV
                 </a>
               </div>
 
