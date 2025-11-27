@@ -37,7 +37,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 font-sans text-gray-800 dark:text-gray-100 transition-colors duration-300">
       
        <style>{`
         @keyframes blob {
@@ -60,11 +60,14 @@ export default function App() {
             linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
           background-size: 40px 40px;
         }
+        .dark .bg-grid-pattern {
+           background-image: linear-gradient(to right, #374151 1px, transparent 1px),
+            linear-gradient(to bottom, #374151 1px, transparent 1px);
+        }
       `}</style>
 
       <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
 
-      {/* Pass scrollToSection to Hero so the "Contact Me" button works */}
       <Hero scrollToContact={() => scrollToSection('contact')} />
       <About />
       <Experience />

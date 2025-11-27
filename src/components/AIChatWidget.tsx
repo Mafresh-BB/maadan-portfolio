@@ -6,7 +6,7 @@ import type { ChatMessage } from '../types';
 export const AIChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: "Hi! I'm Abdulyekeen's AI assistant. Ask me anything about his skills, projects, or experience! ✨" }
+    { role: 'model', text: "Hi! I'm Abdulyekeen's AI assistant. I can guide you through his projects, skills, and experience. What would you like to know? ✨" }
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +42,7 @@ export const AIChatWidget = () => {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
       {/* Chat Window */}
       {isOpen && (
-        <div className="mb-4 w-80 md:w-96 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 overflow-hidden flex flex-col transition-all duration-300 transform origin-bottom-right animate-in fade-in slide-in-from-bottom-10">
+        <div className="mb-4 w-80 md:w-96 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 dark:border-gray-700 overflow-hidden flex flex-col transition-all duration-300 transform origin-bottom-right animate-in fade-in slide-in-from-bottom-10">
           {/* Header */}
           <div className="bg-linear-to-r from-indigo-600 via-blue-600 to-blue-500 p-4 flex justify-between items-center text-white shadow-md">
             <div className="flex items-center gap-3">
@@ -62,7 +62,7 @@ export const AIChatWidget = () => {
           </div>
 
           {/* Messages */}
-          <div className="h-96 overflow-y-auto p-4 bg-gray-50/50 space-y-4 scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent">
+          <div className="h-96 overflow-y-auto p-4 bg-gray-50/50 dark:bg-gray-800/50 space-y-4 scrollbar-thin scrollbar-thumb-gray-200 dark:scrollbar-thumb-gray-700 scrollbar-track-transparent">
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
                  {msg.role === 'model' && (
@@ -74,7 +74,7 @@ export const AIChatWidget = () => {
                   className={`max-w-[80%] p-3.5 rounded-2xl text-sm leading-relaxed shadow-sm ${
                     msg.role === 'user' 
                       ? 'bg-blue-600 text-white rounded-br-none' 
-                      : 'bg-white text-gray-700 border border-gray-100 rounded-tl-none'
+                      : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-100 dark:border-gray-700 rounded-tl-none'
                   }`}
                 >
                   {msg.text}
@@ -86,7 +86,7 @@ export const AIChatWidget = () => {
                 <div className="w-6 h-6 rounded-full bg-linear-to-br from-indigo-500 to-blue-600 flex items-center justify-center text-white mr-2 mt-1 shrink-0">
                    <Bot size={12} />
                 </div>
-                <div className="bg-white p-3 rounded-2xl rounded-tl-none border border-gray-100 shadow-sm flex items-center gap-2 text-gray-500 text-sm">
+                <div className="bg-white dark:bg-gray-800 p-3 rounded-2xl rounded-tl-none border border-gray-100 dark:border-gray-700 shadow-sm flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Loader2 size={14} className="animate-spin text-blue-500" />
                   <span className="text-xs font-medium">Thinking...</span>
                 </div>
@@ -96,14 +96,14 @@ export const AIChatWidget = () => {
           </div>
 
           {/* Input */}
-          <div className="p-3 bg-white border-t border-gray-100 flex gap-2">
+          <div className="p-3 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 flex gap-2">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyPress}
               placeholder="Ask about my projects..."
-              className="flex-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-sm transition-all"
+              className="flex-1 px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-sm transition-all text-gray-800 dark:text-white"
               disabled={isLoading}
             />
             <button 
@@ -117,19 +117,21 @@ export const AIChatWidget = () => {
         </div>
       )}
 
-      {/* Toggle Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`${isOpen ? 'bg-gray-800 rotate-90' : 'bg-linear-to-r from-indigo-600 to-blue-600 hover:scale-110'} text-white p-4 rounded-full shadow-xl hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300 group flex items-center justify-center z-50`}
-      >
-        {isOpen ? <X size={24} /> : <Sparkles size={24} className="animate-pulse" />}
-      </button>
-      {!isOpen && (
-         <div className="absolute bottom-20 right-0 bg-white px-4 py-2 rounded-xl shadow-lg border border-gray-100 text-sm font-medium text-gray-700 whitespace-nowrap animate-bounce origin-bottom-right">
-            Try asking the AI! 👋
-            <div className="absolute -bottom-1 right-6 w-3 h-3 bg-white transform rotate-45 border-b border-r border-gray-100"></div>
-         </div>
-      )}
+      {/* Toggle Button & Tooltip */}
+      <div className="relative group">
+        {!isOpen && (
+           <div className="absolute bottom-full right-0 mb-4 bg-white dark:bg-gray-800 px-4 py-3 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 w-48 animate-bounce origin-bottom-right hidden md:block">
+              <p>Get guided info about my projects & skills! 👇</p>
+              <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white dark:bg-gray-800 transform rotate-45 border-b border-r border-gray-100 dark:border-gray-700"></div>
+           </div>
+        )}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className={`${isOpen ? 'bg-gray-800 dark:bg-gray-700 rotate-90' : 'bg-linear-to-r from-indigo-600 to-blue-600 hover:scale-110'} text-white p-4 rounded-full shadow-xl hover:shadow-blue-500/40 transition-all duration-300 flex items-center justify-center z-50`}
+        >
+          {isOpen ? <X size={24} /> : <Sparkles size={24} className="animate-pulse" />}
+        </button>
+      </div>
     </div>
   );
 };

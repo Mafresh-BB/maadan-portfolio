@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+/* FORCE MANUAL TOGGLE:
+  This line tells Tailwind: "Don't check the system settings. 
+  Only activate dark mode if the .dark class is on the HTML tag."
+*/
+@variant dark (&:where(.dark, .dark *));
+
+/* (Optional) Add smooth scrolling for the whole page 
+*/
+html {
+  scroll-behavior: smooth;
+}
