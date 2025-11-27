@@ -1,5 +1,15 @@
 import type { ChatMessage } from '../types';
-import { personalInfo, skills, experiences, projects, education } from '../data/content';
+// IMPORT ALL THE NEW DATA HERE
+import { 
+  personalInfo, 
+  skills, 
+  experiences, 
+  projects, 
+  education,
+  journey,          // <--- New
+  braggingRights,   // <--- New
+  testimonials      // <--- New
+} from '../data/content';
 
 const getApiKey = () => {
   try {
@@ -14,30 +24,34 @@ const getApiKey = () => {
 
 const apiKey = getApiKey();
 
-// Prefixed history with underscore since it is currently unused in the function body
 export async function generateGeminiResponse(_history: ChatMessage[], userMessage: string) {
+  // BUNDLE EVERYTHING INTO THE AI'S "BRAIN"
   const resumeContext = JSON.stringify({
     personalInfo,
     skills,
     experiences,
     projects,
-    education
+    education,
+    journey,          // <--- Now the AI knows your story
+    braggingRights,   // <--- Now it knows your proudest moments
+    testimonials      // <--- Now it knows about Janet Fayemi
   });
 
   const systemPrompt = `
     You are an AI assistant for Abdulyekeen Maadan's portfolio website. 
     Your goal is to help recruiters and visitors understand his qualifications as a Frontend Engineer.
     
-    Here is his Resume Data:
+    Here is his Resume Data (including testimonials and personal journey):
     ${resumeContext}
 
     Instructions:
     1. Answer questions strictly based on the resume data provided.
     2. Be professional, concise, enthusiastic, and helpful.
-    3. If asked about a skill not listed, say you don't see it in his current resume but suggest they ask him directly.
-    4. Highlight his recent work on the ENSII Luxury Safaris platform if asked about complex React projects.
-    5. Keep answers short (under 3 sentences) unless asked for details.
-    6. Use emojis occasionally to be friendly.
+    3. If asked about "Client Feedback" or "Reviews", quote Janet Fayemi's testimonial.
+    4. If asked about his "Story" or "Background", summarize his Journey from the data.
+    5. Highlight his key achievements (Bragging Rights) when relevant.
+    6. Keep answers short (under 3 sentences) unless asked for details.
+    7. Use emojis occasionally to be friendly.
   `;
 
   try {
