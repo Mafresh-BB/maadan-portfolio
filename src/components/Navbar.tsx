@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Github, Moon, Sun } from 'lucide-react';
 import { personalInfo } from '../data/content';
 import { useTheme } from '../hooks/useTheme';
@@ -10,6 +10,7 @@ interface NavbarProps {
 
 export const Navbar = ({ activeSection, scrollToSection }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
@@ -20,6 +21,18 @@ export const Navbar = ({ activeSection, scrollToSection }: NavbarProps) => {
     { name: 'Education', id: 'education' },
     { name: 'Contact', id: 'contact' },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scroll = `${totalScroll / windowHeight}`;
+      setScrollProgress(Number(scroll));
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleMobileClick = (id: string) => {
     scrollToSection(id);
@@ -95,6 +108,9 @@ export const Navbar = ({ activeSection, scrollToSection }: NavbarProps) => {
           </div>
         </div>
       </div>
+
+      {/* Scroll Progress Bar */}
+      <div className="absolute bottom-0 left-0 h-[3px] bg-blue-600 dark:bg-blue-400 transition-all duration-150 ease-out" style={{ width: `${scrollProgress * 100}%` }}></div>
 
       {/* Mobile Nav */}
       {isMenuOpen && (

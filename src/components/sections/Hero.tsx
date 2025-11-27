@@ -1,4 +1,4 @@
-import { Mail, MapPin, Globe, Code2, Download } from 'lucide-react';
+import { Mail, MapPin, Code2, Download } from 'lucide-react';
 import { personalInfo } from '../../data/content';
 import { RevealOnScroll } from '../ui/RevealOnScroll';
 
@@ -59,8 +59,11 @@ export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
                   <span className="font-medium">{personalInfo.location}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Globe size={18} className="text-green-500" />
-                  <span className="font-medium">Open to Remote</span>
+                  <div className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </div>
+                  <span className="font-medium text-green-600 dark:text-green-400">Available for Work</span>
                 </div>
               </div>
             </div>

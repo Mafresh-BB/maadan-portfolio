@@ -1,13 +1,23 @@
 @import "tailwindcss";
 
-/* FORCE MANUAL TOGGLE:
-  This line tells Tailwind: "Don't check the system settings. 
-  Only activate dark mode if the .dark class is on the HTML tag."
-*/
+/* FORCE MANUAL TOGGLE */
 @variant dark (&:where(.dark, .dark *));
 
-/* (Optional) Add smooth scrolling for the whole page 
-*/
 html {
   scroll-behavior: smooth;
+}
+
+/* MARQUEE ANIMATION */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+/* Pause animation on hover for better UX */
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

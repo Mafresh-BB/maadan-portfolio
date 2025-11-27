@@ -5,6 +5,9 @@ import { Card } from '../ui/Card';
 import { RevealOnScroll } from '../ui/RevealOnScroll';
 
 export const About = () => {
+  // Duplicate skills to create seamless loop
+  const duplicatedSkills = [...skills, ...skills];
+
   return (
     <section id="about" className="py-24 bg-white dark:bg-gray-800 relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +56,7 @@ export const About = () => {
             </RevealOnScroll>
           </div>
 
-          {/* Skills Grid */}
+          {/* Tech Stack Marquee */}
           <div className="md:col-span-6">
              <RevealOnScroll>
              <div className="bg-gray-900 dark:bg-black text-white rounded-3xl p-8 relative overflow-hidden shadow-xl">
@@ -64,15 +67,18 @@ export const About = () => {
                   Technical Stack
                 </h3>
                 
-                <div className="flex flex-wrap gap-3 relative z-10">
-                  {skills.map((skill) => (
-                    <span 
-                      key={skill} 
-                      className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-lg backdrop-blur-sm border border-white/10 transition-colors cursor-default"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                {/* Marquee Container */}
+                <div className="relative w-full overflow-hidden z-10 py-4">
+                  <div className="flex gap-4 animate-marquee whitespace-nowrap">
+                    {duplicatedSkills.map((skill, idx) => (
+                      <span 
+                        key={idx} 
+                        className="inline-block px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-lg backdrop-blur-sm border border-white/10 transition-colors cursor-default"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
              </div>
              </RevealOnScroll>
