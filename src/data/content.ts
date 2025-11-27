@@ -1,4 +1,6 @@
-import type { Experience, Project, Education, JourneyStep } from '../types';
+// Import the new Testimonial type at the top
+import type { Experience, Project, Education, JourneyStep, Testimonial } from '../types';
+
 
 export const personalInfo = {
   name: "ABDULYEKEEN MAADAN",
@@ -41,7 +43,7 @@ export const braggingRights = [
 export const skills = [
   "React.js & Hooks", "TypeScript (DTOs)", "Vite", "Tailwind CSS", 
   "Framer Motion", "Service Layer Pattern", "Git/GitHub", "SEO Optimization",
-  "API Integration", "Web Performance", "Accessibility (WCAG)", "WordPress CMS", "Responsive Design", "Component Libraries", "Testing (Jest)"
+  "API Integration", "Web Performance", "Accessibility (WCAG)", "WordPress CMS", "Responsive Web Design"
 ];
 
 export const experiences: Experience[] = [
@@ -122,3 +124,12 @@ export const education: Education = {
     "Applied mathematical logic to software algorithms and state management complexity."
   ]
 };
+export const testimonials: Testimonial[] = [
+  {
+    name: "Janet Fayemi",
+    role: "Operations Coordinator",
+    company: "Jaytee Fayemi Foundation",
+    image: "https://ui-avatars.com/api/?name=Janet+Fayemi&background=0D8ABC&color=fff", // Auto-generates initials
+    text: "I’m thrilled to share my positive experience working with Abdulyekeen on the website for the Jaytee Fayemi Foundation. The website is visually appealing, well-organized, and perfectly reflects our mission and values. The design and functionality are top-notch, making it easy for our visitors to engage with our content. He was attentive to our needs and delivered a product that exceeds our expectations."
+  }
+];

@@ -31,3 +31,11 @@ export interface JourneyStep {
   title: string;
   description: string;
 }
+
+export interface Testimonial {
+  name: string;
+  role: string;
+  company: string;
+  image: string; // We can use a placeholder or initials if you don't have her photo
+  text: string;
+}
