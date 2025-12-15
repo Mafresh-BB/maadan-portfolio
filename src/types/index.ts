@@ -25,7 +25,6 @@ export interface ChatMessage {
   text: string;
 }
 
-// New Type for your Personal Journey
 export interface JourneyStep {
   year: string;
   title: string;
@@ -36,6 +35,15 @@ export interface Testimonial {
   name: string;
   role: string;
   company: string;
-  image: string; // We can use a placeholder or initials if you don't have her photo
+  image: string;
   text: string;
+}
+
+// Added Article interface to fix the error
+export interface Article {
+  title: string;
+  excerpt: string;
+  date: string;
+  link: string;
+  platform: string;
 }

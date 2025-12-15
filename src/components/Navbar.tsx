@@ -18,6 +18,7 @@ export const Navbar = ({ activeSection, scrollToSection }: NavbarProps) => {
     { name: 'About', id: 'about' },
     { name: 'Experience', id: 'experience' },
     { name: 'Projects', id: 'projects' },
+    // Removed 'Writing' link
     { name: 'Education', id: 'education' },
     { name: 'Contact', id: 'contact' },
   ];

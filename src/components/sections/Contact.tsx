@@ -11,7 +11,7 @@ export const Contact = () => {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-        <h2 className="text-4xl font-bold mb-6 tracking-tight">Let's Build Something Amazing</h2>
+        <h2 className="text-4xl font-bold mb-6 tracking-tight">Get In Touch</h2>
         <p className="text-gray-400 mb-12 max-w-2xl mx-auto text-lg leading-relaxed">
           I'm currently available for freelance work and full-time positions. 
           If you have a project that needs a creative and technical touch, let's connect.
@@ -42,13 +42,6 @@ export const Contact = () => {
             <div className="font-medium text-white">GitHub Profile</div>
           </a>
         </div>
-
-        <footer className="mt-24 pt-8 border-t border-white/10 text-gray-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>&copy; {new Date().getFullYear()} Abdulyekeen Maadan. All rights reserved.</p>
-          <p className="flex items-center gap-2">
-            Made with <span className="text-red-500">❤</span> and React
-          </p>
-        </footer>
       </div>
     </section>
   );
