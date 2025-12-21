@@ -93,7 +93,7 @@ export default function App() {
       <CallToAction scrollToContact={() => scrollToSection('contact')} />
       <Contact />
       <Footer />
-
+ 
       <AIChatWidget />
       <BackToTop />
       
