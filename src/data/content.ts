@@ -7,14 +7,15 @@ export const personalInfo = {
   phone: "+234 706 780 1635",
   email: "babatundemaadan@gmail.com",
   github: "https://mafresh-bb.github.io/Maadan-Abdulyekeen-Portfolio/",
-  linkedin: "https://www.linkedin.com/in/abdulyekeenmaadan", // <--- Added
-  twitter: "https://x.com/Olamails_", // <--- Added
+  linkedin: "https://www.linkedin.com/in/abdulyekeenmaadan",
+  twitter: "https://x.com/Olamails_",
   avatar: "/profile.jpg", 
-  resumePdf: "/resume.pdf",
-  about: "I wasn't the 'tech kid' growing up. In fact, I had to fight to learn every skill I have today. Now, I'm a performance-driven Frontend Engineer who builds real-world solutions. I combine a strong mathematical background with self-taught engineering discipline to build scalable, accessible web applications."
+  resumePdf: "/ABDULYEKEEN MAADAN- FRONTEND DEVELOPER CV.pdf",
+  // Updated Bio: Focused on readiness and engineering discipline
+  about: "I combine a strong mathematical background with self-taught engineering discipline to build scalable, accessible web applications. Having successfully managed freelance projects alongside my National Service, I am now a fully available Frontend Engineer ready to tackle complex problems in full-time roles."
 };
 
-export const articles: Article[] = []; // <--- Empty for now
+export const articles: Article[] = []; 
 
 export const skills = [
   "React.js & Hooks", "TypeScript (DTOs)", "Vite", "Tailwind CSS", 
@@ -113,9 +114,9 @@ export const journey: JourneyStep[] = [
     description: "While others waited for jobs, I built them. I designed websites for NGOs and businesses, learned WordPress, and mastered React/TypeScript—all while finishing my B.Sc in Mathematics."
   },
   {
-    year: "Now",
-    title: "Engineer & Leader",
-    description: "Currently serving my NYSC year while preparing for graduate studies. I don't just write code; I architect solutions like the ENSII platform and build AI integrations."
+    year: "Dec 2025", // Updated for recent milestone
+    title: "Ready to Deploy",
+    description: "Completed National Service (NYSC) with Certificate in hand. I am now fully available for full-time opportunities, bringing a year of freelance engineering experience to a dedicated team."
   }
 ];
 
@@ -123,7 +124,7 @@ export const braggingRights = [
   "Built 5+ real-world websites for paying clients (NGOs, Ecommerce)",
   "Self-taught React + TypeScript ecosystem with zero formal bootcamp",
   "Implemented Google Gemini AI integration into a production React app",
-  "Taught LaTeX and technical writing to fellow university students",
+  "Completed NYSC Service Year while maintaining freelance clients", // Updated
   "Graduated with a Mathematics degree while running a freelance business"
 ];
 

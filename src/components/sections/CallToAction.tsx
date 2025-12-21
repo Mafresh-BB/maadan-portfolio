@@ -56,7 +56,7 @@ export const CallToAction = ({ scrollToContact }: { scrollToContact: () => void 
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 aspect-video md:aspect-square lg:aspect-video bg-gray-800">
                     {/* Placeholder Image - You can replace this src with "/your-photo.jpg" later */}
                     <img 
-                      src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop" 
+                      src="./workspace.jpg" 
                       alt="Developer Workspace" 
                       className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />
