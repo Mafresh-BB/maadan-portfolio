@@ -61,13 +61,7 @@ export const CallToAction = ({ scrollToContact }: { scrollToContact: () => void 
                       className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />
                     
-                    {/* Overlay Badge */}
-                    <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-4 rounded-xl border border-white/10">
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                        <p className="text-white text-sm font-mono">System Status: Ready to Deploy 🚀</p>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
