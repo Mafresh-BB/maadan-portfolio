@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { BackToTop } from './components/ui/BackToTop';
@@ -96,6 +97,7 @@ export default function App() {
  
       <AIChatWidget />
       <BackToTop />
+      <Analytics />
       
     </div>
   );
