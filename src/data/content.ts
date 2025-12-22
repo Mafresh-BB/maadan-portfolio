@@ -11,8 +11,8 @@ export const personalInfo = {
   twitter: "https://x.com/Olamails_",
   avatar: "/profile.jpg", 
   resumePdf: "/ABDULYEKEEN MAADAN- FRONTEND DEVELOPER CV.pdf",
-  // Updated Bio: Focused on readiness and engineering discipline
-  about: "I combine a strong mathematical background with self-taught engineering discipline to build scalable, accessible web applications. Having successfully managed freelance projects alongside my National Service, I am now a fully available Frontend Engineer ready to tackle complex problems in full-time roles."
+  // Updated for the About Section (The Hero will use its own punchy text now)
+  about: "I combine a strong mathematical background with self-taught engineering discipline to build scalable, accessible web applications. I don't just write code; I architect solutions that solve real business problems, having successfully managed freelance projects alongside my National Service."
 };
 
 export const articles: Article[] = []; 
@@ -23,15 +23,16 @@ export const skills = [
   "API Integration", "Web Performance", "Accessibility (WCAG)"
 ];
 
+// REWRITTEN EXPERIENCE SECTION (Precise & Professional)
 export const experiences: Experience[] = [
   {
     role: "Frontend Engineer",
     company: "ENSII Luxury Safaris",
     period: "Contract",
     description: [
-      "Solved the 'Empty Backend' problem by engineering a Dev Mode fallback strategy, allowing UI development to proceed without live APIs.",
-      "Architected type-safe DTOs to mirror Java backend entities, reducing runtime errors by 40%.",
-      "Built a custom 'Yosemite-style' hero slider with synchronized animations using Framer Motion."
+      "Built a 'Dev-Mode' fallback system that allowed frontend development to continue seamlessly while backend APIs were unavailable.",
+      "Designed type-safe DTOs aligned with Java backend models, significantly reducing frontend runtime errors during QA testing.",
+      "Developed a custom Yosemite-style hero slider with synchronized Framer Motion animations for a premium travel experience."
     ]
   },
   {
@@ -39,9 +40,9 @@ export const experiences: Experience[] = [
     company: "JTF Foundation (NGO)",
     period: "Jul 2023 - Jul 2024",
     description: [
-      "Problem: The client needed a platform to showcase their impact but had zero technical staff.",
-      "Solution: Delivered a high-performance, accessible 5-page site with a dynamic blog system they could manage easily.",
-      "Result: Improved mobile accessibility scores to 95+ via Lighthouse optimization."
+      "Designed and launched a 5-page NGO website focused on clarity and accessibility for non-technical administrators.",
+      "Integrated a dynamic blog system and optimized site performance, achieving 95+ Lighthouse scores on mobile.",
+      "Managed the full deployment pipeline and SEO configuration."
     ]
   },
   {
@@ -49,9 +50,9 @@ export const experiences: Experience[] = [
     company: "Self-Employed",
     period: "May 2023 - Present",
     description: [
-      "Managed the full lifecycle of client projects: from requirements gathering to deployment and SEO.",
-      "Built reusable component libraries in React to speed up future client deliverables.",
-      "Translated complex UI/UX designs into pixel-perfect, responsive code."
+      "Shipped production-ready websites for diverse clients, translating business requirements into pixel-perfect code.",
+      "Established a modular component workflow using React and Tailwind to accelerate delivery times.",
+      "Provided technical consultation on UI/UX best practices and accessibility standards."
     ]
   }
 ];
@@ -114,7 +115,7 @@ export const journey: JourneyStep[] = [
     description: "While others waited for jobs, I built them. I designed websites for NGOs and businesses, learned WordPress, and mastered React/TypeScript—all while finishing my B.Sc in Mathematics."
   },
   {
-    year: "Dec 2025", // Updated for recent milestone
+    year: "Dec 2025", 
     title: "Ready to Deploy",
     description: "Completed National Service (NYSC) with Certificate in hand. I am now fully available for full-time opportunities, bringing a year of freelance engineering experience to a dedicated team."
   }
@@ -124,7 +125,7 @@ export const braggingRights = [
   "Built 5+ real-world websites for paying clients (NGOs, Ecommerce)",
   "Self-taught React + TypeScript ecosystem with zero formal bootcamp",
   "Implemented Google Gemini AI integration into a production React app",
-  "Completed NYSC Service Year while maintaining freelance clients", // Updated
+  "Completed NYSC Service Year while maintaining freelance clients",
   "Graduated with a Mathematics degree while running a freelance business"
 ];
 
