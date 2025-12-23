@@ -67,7 +67,7 @@ export const projects: Project[] = [
       "Key Tech: Implemented Feature Flags to toggle between Mock Data and Live Data during development."
     ],
     image: "/ensii.jpg",
-    link: "https://www.ensii-safaris.com" 
+    link: "https://ensiisafaris.ca/" 
   },
   {
     title: "AI-Augmented Portfolio (Meta)",
