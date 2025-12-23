@@ -89,7 +89,7 @@ export const projects: Project[] = [
       "Key Feature: Dynamic gallery and blog integration that boosted SEO ranking."
     ],
     image: "/project2.jpg",
-    link: "https://www.jtf-foundation.org"
+    link: "https://www.jtffoundation.org"
   }
 ];
 
