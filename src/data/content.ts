@@ -9,7 +9,7 @@ export const personalInfo = {
   github: "https://mafresh-bb.github.io/Maadan-Abdulyekeen-Portfolio/",
   linkedin: "https://www.linkedin.com/in/abdulyekeenmaadan",
   twitter: "https://x.com/Olamails_",
-  avatar: "/profile.jpg", 
+  avatar: "/abdulyekeen_maadan.jpg", 
   resumePdf: "/ABDULYEKEEN MAADAN- FRONTEND DEVELOPER CV.pdf",
   // Updated for the About Section (The Hero will use its own punchy text now)
   about: "I combine a strong mathematical background with self-taught engineering discipline to build scalable, accessible web applications. I don't just write code; I architect solutions that solve real business problems, having successfully managed freelance projects alongside my National Service."
@@ -77,7 +77,7 @@ export const projects: Project[] = [
       "The Solution: I integrated Google's Gemini LLM to create a context-aware assistant that answers questions about my resume instantly.",
       "Key Tech: System Prompting, Environment Variable Security, and Stream-like UI updates."
     ],
-    image: "/project1.jpg",
+    image: "/project1_dark.jpg",
     link: "https://maadan-portfolio.vercel.app"
   },
   {
