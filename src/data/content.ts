@@ -6,7 +6,7 @@ export const personalInfo = {
   location: "Lagos, Nigeria",
   phone: "+234 706 780 1635",
   email: "babatundemaadan@gmail.com",
-  github: "https://mafresh-bb.github.io/Maadan-Abdulyekeen-Portfolio/",
+  github: "https://github.com/Mafresh-BB",
   linkedin: "https://www.linkedin.com/in/abdulyekeenmaadan",
   twitter: "https://x.com/Olamails_",
   avatar: "/abdulyekeen_maadan.jpg", 
