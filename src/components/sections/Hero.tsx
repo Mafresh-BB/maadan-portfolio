@@ -88,7 +88,7 @@ export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
                            <img 
                               src={personalInfo.avatar} 
                               alt={personalInfo.name} 
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover rounded-[2.5rem] group-hover:scale-1.02 transition-transform duration-500"
                               onError={(e) => {
                                 e.currentTarget.style.display = 'none';
                                 const fallback = document.getElementById('avatar-fallback');
