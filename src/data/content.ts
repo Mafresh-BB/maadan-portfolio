@@ -38,7 +38,7 @@ export const experiences: Experience[] = [
   },
   {
     role: "Frontend Engineer",
-    company: "ENSII Luxury Safaris",
+    company: "ATEKER Luxury Safaris",
     period: "Contract",
     description: [
       "Architected the frontend from scratch for a high-end travel platform, translating complex product requirements into a responsive interface.",
@@ -62,7 +62,7 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
-    title: "ENSII Luxury Safaris Platform",
+    title: "ATEKER Luxury Safaris Platform",
     tech: ["React", "TypeScript", "Vite", "Framer Motion"],
     description: [
       "The Problem: The client needed a premium feel for high-end travelers but the API was inconsistent.",
