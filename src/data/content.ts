@@ -10,7 +10,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/abdulyekeenmaadan",
   twitter: "https://x.com/Olamails_",
   avatar: "/profile.webp", 
-  resumePdf: "/resume.pdf",
+  resumePdf: "/Abdulyekeen Maadan CV.pdf",
   // Updated for the About Section (The Hero will use its own punchy text now)
   about: "I combine a strong mathematical background with self-taught engineering discipline to build scalable, accessible web applications. I don't just write code; I architect solutions that solve real business problems, having successfully managed freelance projects alongside my National Service."
 };
