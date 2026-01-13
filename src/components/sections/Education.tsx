@@ -16,8 +16,8 @@ export const Education = () => {
           <div className="space-y-4 flex-1">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
               <div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{education.degree}</h3>
-                  <p className="text-xl text-blue-600 dark:text-blue-400 font-medium mt-1">{education.school}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">{education.degree}</h3>
+                  <p className="text-lg sm:text-xl text-blue-600 dark:text-blue-400 font-medium mt-1">{education.school}</p>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-gray-50 dark:bg-gray-700 rounded-lg text-gray-600 dark:text-gray-300 text-sm font-semibold border border-gray-100 dark:border-gray-600">
                 <BookOpen size={16} /> {education.period}

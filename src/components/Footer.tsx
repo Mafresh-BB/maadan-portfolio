@@ -10,7 +10,7 @@ export const Footer = () => {
             {personalInfo.name}
           </h3>
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            Frontend Engineer & UI Specialist
+            {personalInfo.title}
           </p>
         </div>
 

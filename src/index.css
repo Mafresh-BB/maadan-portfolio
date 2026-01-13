@@ -3,6 +3,29 @@
 /* FORCE MANUAL TOGGLE */
 @variant dark (&:where(.dark, .dark *));
 
+:root {
+  --brand-500: #2563eb;
+  --brand-600: #1d4ed8;
+  --brand-700: #1e40af;
+  --ink-900: #0f172a;
+  --ink-700: #334155;
+  --paper-50: #f8fafc;
+  --paper-100: #f1f5f9;
+  --accent-100: #dbeafe;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--paper-50);
+}
+
+.dark body {
+  background-color: #0b1220;
+}
+
 html {
   scroll-behavior: smooth;
 }

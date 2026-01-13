@@ -13,6 +13,7 @@ import { Education } from './components/sections/Education';
 import { CallToAction } from './components/sections/CallToAction';
 import { Contact } from './components/sections/Contact';
 import { AIChatWidget } from './components/AIChatWidget';
+import { HowIBuiltThis } from './components/sections/HowIBuiltThis';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -28,7 +29,7 @@ export default function App() {
   useEffect(() => {
     const handleScroll = () => {
       // Removed 'writing' from spy list
-      const sections = ['home', 'about', 'experience', 'projects', 'testimonials', 'education', 'contact'];
+      const sections = ['home', 'about', 'experience', 'projects', 'how', 'testimonials', 'education', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -89,6 +90,7 @@ export default function App() {
       <About />
       <Experience />
       <Projects />
+      <HowIBuiltThis />
       {/* Writing Section removed until you have articles */}
       <Testimonials />
       <Education />
