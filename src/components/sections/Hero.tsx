@@ -99,16 +99,24 @@ export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
 
             {/* Hero Visual */}
             <div className="flex-1 flex justify-center md:justify-end relative z-10">
-              <div className="w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-[28rem] relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-[3rem] rotate-6 opacity-20 blur-2xl" />
-                <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-[2.5rem] shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden flex flex-col items-center justify-center group hover:scale-[1.02] transition-transform duration-500">
-                  {personalInfo.avatar && !imgError ? (
-                    <img
-                      src={personalInfo.avatar}
-                      alt={personalInfo.name}
-                      className="w-full h-full object-cover rounded-[2.5rem] group-hover:scale-[1.02] transition-transform duration-500"
-                      onError={() => setImgError(true)}
-                    />
+              <div className="w-56 sm:w-80 md:w-[26rem] aspect-square relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-indigo-600/30 rounded-[2.75rem] rotate-6 blur-2xl" />
+                <div className="absolute inset-0 rounded-[2.25rem] bg-white/90 dark:bg-gray-900/80 shadow-2xl border border-gray-200/70 dark:border-gray-700/80 overflow-hidden backdrop-blur-sm group hover:scale-[1.02] transition-transform duration-500">
+                  {!imgError ? (
+                    <>
+                      <img
+                        src="/hero-white.png"
+                        alt={`${personalInfo.name} portrait`}
+                        className="w-full h-full object-cover dark:hidden group-hover:scale-[1.02] transition-transform duration-500"
+                        onError={() => setImgError(true)}
+                      />
+                      <img
+                        src="/hero-dark.png"
+                        alt={`${personalInfo.name} portrait`}
+                        className="hidden dark:block w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                        onError={() => setImgError(true)}
+                      />
+                    </>
                   ) : (
                     <div className="flex-1 w-full p-8 flex flex-col items-center justify-center bg-dot-pattern">
                       <div className="w-32 h-32 bg-blue-50 dark:bg-gray-700 rounded-full flex items-center justify-center mb-6">
