@@ -96,6 +96,34 @@ export default function App() {
         .animation-delay-3000 {
           animation-delay: 3s;
         }
+        @keyframes slow-spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .animate-slow-spin {
+          animation: slow-spin 24s linear infinite;
+        }
+        @keyframes glow-pulse {
+          0%, 100% { opacity: 0.35; transform: scale(0.98); }
+          50% { opacity: 0.7; transform: scale(1.02); }
+        }
+        .animate-glow {
+          animation: glow-pulse 5s ease-in-out infinite;
+        }
+        @keyframes orbit {
+          0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+          100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+        }
+        .animate-orbit {
+          animation: orbit 12s linear infinite;
+        }
+        @keyframes orbit-wide {
+          0% { transform: rotate(0deg) translateX(180px) rotate(0deg); }
+          100% { transform: rotate(-360deg) translateX(180px) rotate(360deg); }
+        }
+        .animate-orbit-wide {
+          animation: orbit-wide 18s linear infinite;
+        }
       `}</style>
 
       <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
