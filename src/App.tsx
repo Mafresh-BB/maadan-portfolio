@@ -82,6 +82,20 @@ export default function App() {
         .animate-marquee:hover {
           animation-play-state: paused;
         }
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        .animation-delay-1000 {
+          animation-delay: 1s;
+        }
+        .animation-delay-3000 {
+          animation-delay: 3s;
+        }
       `}</style>
 
       <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
