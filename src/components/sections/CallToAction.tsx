@@ -24,7 +24,10 @@ export const CallToAction = ({ scrollToContact }: { scrollToContact: () => void 
                   Looking for a junior developer who is consistent, coachable, and focused on clean UI?
                 </p>
                 <p className="text-white font-medium text-lg">
-                  I'm open to internship and junior roles.
+                  {personalInfo.lookingFor}.
+                </p>
+                <p className="text-blue-100 text-sm uppercase tracking-[0.35em]">
+                  {personalInfo.availability}
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">

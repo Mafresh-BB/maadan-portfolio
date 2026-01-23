@@ -1,5 +1,5 @@
 import { Terminal, Star, ArrowRight, Layout, Database, Github, GraduationCap } from 'lucide-react';
-import { personalInfo, skills, journey, braggingRights } from '../../data/content';
+import { personalInfo, skills, journey, braggingRights, resumeHighlights } from '../../data/content';
 import { SectionTitle } from '../ui/SectionTitle';
 import { Card } from '../ui/Card';
 import { RevealOnScroll } from '../ui/RevealOnScroll';
@@ -50,6 +50,20 @@ export const About = () => {
               </ul>
             </div>
             
+            <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 border border-gray-100 dark:border-gray-700">
+              <h3 className="font-bold text-gray-900 dark:text-white mb-5 text-lg sm:text-xl">
+                Resume Highlights
+              </h3>
+              <ul className="space-y-4">
+                {resumeHighlights.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-gray-700 dark:text-gray-300 text-sm">
+                    <span className="w-2 h-2 mt-2 rounded-full bg-blue-500 shrink-0"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <div className="prose prose-lg text-gray-600 dark:text-gray-300 leading-loose mt-8">
                <p className="italic border-l-4 border-blue-200 dark:border-blue-800 pl-4 py-2">
                  "{personalInfo.about}"

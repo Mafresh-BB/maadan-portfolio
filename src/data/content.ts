@@ -4,6 +4,7 @@ export const personalInfo = {
   name: "ABDULYEKEEN MAADAN",
   title: "Junior Frontend Developer",
   location: "Lagos, Nigeria",
+  timezone: "WAT (UTC+1)",
   phone: "+234 706 780 1635",
   email: "babatundemaadan@gmail.com",
   github: "https://github.com/Mafresh-BB",
@@ -11,6 +12,9 @@ export const personalInfo = {
   twitter: "https://x.com/Olamails_",
   avatar: "/profile.webp",
   resumePdf: "/Abdulyekeen Maadan CV.pdf",
+  availability: "Available for full-time roles from Jan 2026",
+  lookingFor: "Internship or junior frontend roles with mentorship",
+  stackSummary: "React • TypeScript • Tailwind",
   // Updated for the About Section (The Hero will use its own punchy text now)
   about: "Self-taught and still learning the fundamentals. I build responsive web interfaces, learn fast, and use AI as a learning assistant. I'm looking for an internship or junior role to grow in a real team."
 };
@@ -32,6 +36,17 @@ export const skills = [
 
 
 export const experiences: Experience[] = [
+  {
+    role: "STEM Educator (NYSC)",
+    company: "Royal Brook International School (PPA)",
+    period: "Completed Dec 18, 2025",
+    image: "/nysc-professional.jpg",
+    description: [
+      "Taught Mathematics and Further Mathematics to SSS 1-3, strengthening my ability to explain complex logic clearly.",
+      "Used student performance data to improve learning outcomes and refine instruction.",
+      "Delivered lesson plans and assessments on strict timelines, sharpening planning and execution."
+    ]
+  },
   {
     role: "Freelance Web Developer (Junior)",
     company: "Self-Employed",
@@ -133,10 +148,17 @@ export const journey: JourneyStep[] = [
 
 export const braggingRights = [
   "FreeCodeCamp Responsive Web Design certified (2022)",
+  "Completed NYSC as a STEM Educator (Mathematics and Further Mathematics)",
   "Built responsive pages for clients and practice projects",
   "Self-taught and learning JavaScript/React fundamentals",
   "Used AI as a learning assistant to follow instructions and ship UI changes",
   "Graduated with a Mathematics degree"
+];
+
+export const resumeHighlights = [
+  "Built responsive multi-page experiences for nonprofit and business clients.",
+  "Shipped a branded hero and UI refresh for a travel platform.",
+  "Created an AI-assisted portfolio experience with clear, recruiter-friendly UX."
 ];
 
 export const testimonials: Testimonial[] = [

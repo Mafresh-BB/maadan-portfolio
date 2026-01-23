@@ -146,6 +146,9 @@ export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
               <p className="text-base sm:text-lg text-gray-600 dark:text-white/70 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 I build responsive interfaces with clean structure, smooth motion, and strong visual hierarchy.
               </p>
+              <div className="text-sm font-semibold text-blue-600 dark:text-blue-300">
+                {personalInfo.stackSummary}
+              </div>
 
               <div className="flex flex-row flex-wrap gap-3 pt-2 justify-center lg:justify-start">
                 <button
@@ -171,6 +174,8 @@ export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
 
               <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs uppercase tracking-[0.35em] text-gray-500 dark:text-white/40">
                 <span>{personalInfo.location}</span>
+                <span className="h-3 w-px bg-gray-300 dark:bg-white/20" />
+                <span>{personalInfo.timezone}</span>
                 <span className="h-3 w-px bg-gray-300 dark:bg-white/20" />
                 <span>React + TypeScript</span>
               </div>

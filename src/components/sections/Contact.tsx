@@ -12,10 +12,13 @@ export const Contact = () => {
 
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6 tracking-tight">Get In Touch</h2>
-        <p className="text-gray-400 mb-12 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-          I'm looking for internship or junior roles where I can learn and grow.
+        <p className="text-gray-400 mb-6 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+          {personalInfo.lookingFor}.
           If you have a team that values curiosity and steady progress, let's connect.
         </p>
+        <div className="text-sm uppercase tracking-[0.35em] text-blue-300 mb-10">
+          {personalInfo.availability}
+        </div>
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
           <a href={`mailto:${personalInfo.email}`} className="p-7 md:p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all group hover:-translate-y-1">

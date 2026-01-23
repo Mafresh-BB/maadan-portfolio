@@ -24,14 +24,24 @@ export const Experience = () => {
                   {/* Arrow for Desktop */}
                   <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white dark:bg-gray-800 border-t border-r border-gray-100 dark:border-gray-700 transform rotate-45 ${index % 2 === 0 ? '-left-2 border-r-0 border-t-0 border-l border-b shadow-[-2px_2px_2px_-1px_rgba(0,0,0,0.05)]' : '-right-2 shadow-[2px_-2px_2px_-1px_rgba(0,0,0,0.05)]'}`}></div>
 
-                  <div className="flex flex-wrap justify-between items-start mb-4 gap-2">
+                  <div className="flex flex-wrap justify-between items-start mb-4 gap-4">
                      <div>
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight">{exp.role}</h3>
                         <p className="text-blue-600 dark:text-blue-400 font-medium text-sm mt-1">{exp.company}</p>
                      </div>
-                     <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-bold whitespace-nowrap">
-                      {exp.period}
-                     </span>
+                     <div className="flex items-center gap-3">
+                      {exp.image && (
+                        <img
+                          src={exp.image}
+                          alt={`${exp.role} photo`}
+                          className="w-14 h-14 rounded-xl object-cover border border-gray-100 dark:border-gray-700 shadow-sm"
+                          loading="lazy"
+                        />
+                      )}
+                      <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-bold whitespace-nowrap">
+                        {exp.period}
+                      </span>
+                     </div>
                   </div>
                   
                   <ul className="space-y-3">
