@@ -9,16 +9,16 @@ export const Education = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle subtitle="education">Education</SectionTitle>
         <RevealOnScroll>
-        <div className="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col md:flex-row gap-8 items-start hover:shadow-lg transition-shadow">
-          <div className="shrink-0 flex flex-col items-center gap-4">
-            <div className="p-5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl">
-              <GraduationCap size={40} />
+        <div className="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col md:flex-row gap-8 items-center md:items-start hover:shadow-lg transition-shadow">
+          <div className="shrink-0 flex items-center md:flex-col md:items-start gap-4 md:gap-6">
+            <div className="p-4 md:p-5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl">
+              <GraduationCap size={32} className="md:w-10 md:h-10" />
             </div>
             {education.image && (
               <img
                 src={education.image}
                 alt="Convocation portrait"
-                className="w-28 h-28 rounded-2xl object-cover border border-gray-100 dark:border-gray-700 shadow-sm"
+                className="w-20 h-20 md:w-28 md:h-28 rounded-2xl object-cover border border-gray-100 dark:border-gray-700 shadow-sm saturate-75 contrast-90"
                 loading="lazy"
               />
             )}

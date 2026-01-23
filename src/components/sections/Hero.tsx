@@ -132,10 +132,10 @@ export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
                   Frontend Developer
                 </p>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-white dark:via-white/90 dark:to-white/70">
+                  <span className="inline-block min-w-[12ch] text-left text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-white dark:via-white/90 dark:to-white/70">
                     {rotatingWords[wordIndex].slice(0, charIndex)}
+                    <span className="inline-block w-[0.6ch] text-blue-600 dark:text-white/80 animate-pulse">|</span>
                   </span>
-                  <span className="inline-block w-[0.6ch] text-blue-600 dark:text-white/80 animate-pulse">|</span>
                   <span className="ml-2 text-gray-900 dark:text-blue-300">DEVELOPER</span>
                 </h1>
                 <p className="text-sm sm:text-base uppercase tracking-[0.35em] text-gray-500 dark:text-white/50">
