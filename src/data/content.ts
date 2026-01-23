@@ -11,7 +11,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/abdulyekeenmaadan",
   twitter: "https://x.com/Olamails_",
   avatar: "/profile.webp",
-  resumePdf: "/Abdulyekeen Maadan CV.pdf",
+  resumePdf: "/Abdulyekeen-Maadan-CV.pdf",
   availability: "Available for full-time roles from Jan 2026",
   lookingFor: "Internship or junior frontend roles with mentorship",
   stackSummary: "React • TypeScript • Tailwind",
@@ -122,6 +122,7 @@ export const education: Education = {
   degree: "Bachelor of Science (B.Sc.) in Mathematics",
   school: "Federal University of Agriculture, Abeokuta",
   period: "Oct 2019 - Aug 2024",
+  image: "/convocation.jpg",
   details: [
     "Final Year Project: 'Some Application of First Order Delay Differential Equation in Biology.'",
     "Applied mathematical logic to software algorithms and state management complexity."

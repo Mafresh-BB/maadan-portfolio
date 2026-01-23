@@ -10,8 +10,18 @@ export const Education = () => {
         <SectionTitle subtitle="education">Education</SectionTitle>
         <RevealOnScroll>
         <div className="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col md:flex-row gap-8 items-start hover:shadow-lg transition-shadow">
-          <div className="p-5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl shrink-0">
-            <GraduationCap size={40} />
+          <div className="shrink-0 flex flex-col items-center gap-4">
+            <div className="p-5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl">
+              <GraduationCap size={40} />
+            </div>
+            {education.image && (
+              <img
+                src={education.image}
+                alt="Convocation portrait"
+                className="w-28 h-28 rounded-2xl object-cover border border-gray-100 dark:border-gray-700 shadow-sm"
+                loading="lazy"
+              />
+            )}
           </div>
           <div className="space-y-4 flex-1">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">

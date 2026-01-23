@@ -19,6 +19,7 @@ export interface Education {
   school: string;
   period: string;
   details: string[];
+  image?: string;
 }
 
 export interface ChatMessage {
