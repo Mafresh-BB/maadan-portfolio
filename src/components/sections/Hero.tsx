@@ -168,7 +168,7 @@ export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50 dark:focus-visible:ring-offset-slate-950"
                 >
                   <Download size={20} />
-                  View CV
+                  View Resume
                 </a>
               </div>
 
