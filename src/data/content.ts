@@ -2,7 +2,7 @@ import type { Experience, Project, Education, JourneyStep, Testimonial, Article 
 
 export const personalInfo = {
   name: "ABDULYEKEEN MAADAN",
-  title: "Frontend Developer", // "Junior" is implied by years of experience; don't put it in the headline.
+  title: "Frontend Developer",
   location: "Lagos, Nigeria",
   timezone: "WAT (UTC+1)",
   phone: "+234 706 780 1635",
@@ -46,9 +46,9 @@ export const experiences: Experience[] = [
     ]
   },
   {
-    role: "Frontend Developer (Contract)", // Removed "(Junior)" - Contract implies specific scope
+    role: "Frontend Developer (Contract)",
     company: "ATEKER Luxury Safaris",
-    period: "Oct 2024 - Nov 2024",
+    period: "Oct 2024 - Present",
     description: [
       "Collaborated with the lead developer to refresh the visual identity, including logo design and color system.",
       "Developed the responsive hero section and reusable package cards using React and Tailwind.",
@@ -59,21 +59,11 @@ export const experiences: Experience[] = [
   {
     role: "Freelance Web Developer",
     company: "Self-Employed",
-    period: "May 2023 - Present",
+    period: "May 2023 - Jul 2024",
     description: [
-      "Delivered responsive websites for small businesses and nonprofits, focusing on clean layout and semantic HTML.",
-      "Adopted mobile-first workflows to ensure consistent experiences across devices.",
-      "utilized AI tools to accelerate debugging and learn modern React patterns during development."
-    ]
-  },
-  {
-    role: "Frontend Developer",
-    company: "JTF Foundation (NGO)",
-    period: "Jul 2023 - Jul 2024",
-    description: [
-      "Contributed to the development of a multi-page nonprofit website, focusing on layout structure and content readability.",
-      "Built reusable UI components for the blog and gallery sections to maintain consistency.",
-      "Ensured the site was fully responsive and accessible for mobile users."
+      "Delivered multi-page websites for non-profits (JTF Foundation) and small businesses using WordPress CMS and semantic HTML.",
+      "Launched e-commerce solutions (Shopify), implementing technical SEO strategies and product structuring to drive organic search visibility.",
+      "Managed full deployment lifecycles and ensured all deliverables met basic mobile responsiveness standards."
     ]
   }
 ];
@@ -104,11 +94,11 @@ export const projects: Project[] = [
   },
   {
     title: "JTF Foundation NGO Website",
-    tech: ["React", "CMS", "SEO"],
+    tech: ["WordPress", "CMS", "SEO"],
     description: [
       "Goal: Improve digital presence for a non-profit.",
-      "Work: Developed responsive layouts and CMS integration.",
-      "Focus: Accessibility and mobile performance."
+      "Work: Configured responsive themes and managed content structure.",
+      "Focus: Accessibility and content readability."
     ],
     image: "/project2.jpg",
     link: "https://www.jtffoundation.org"
@@ -145,19 +135,13 @@ export const journey: JourneyStep[] = [
 ];
 
 export const braggingRights = [
+  "Data Analysis with Python Certified (AQskill)",
   "FreeCodeCamp Responsive Web Design certified (2022)",
   "Completed NYSC as a STEM Educator (Mathematics)",
   "Shipped production UI for ATEKER Luxury Safaris",
   "Self-taught React developer with a B.Sc. in Mathematics",
   "Built an AI-powered portfolio from scratch"
 ];
-
-export const resumeHighlights = [
-  "Built responsive multi-page experiences for nonprofit and business clients.",
-  "Shipped a branded hero and UI refresh for a travel platform.",
-  "Created an AI-assisted portfolio experience with clear, recruiter-friendly UX."
-];
-
 
 export const testimonials: Testimonial[] = [
   {
@@ -169,6 +153,11 @@ export const testimonials: Testimonial[] = [
   }
 ];
 
+export const resumeHighlights = [
+  "Built responsive multi-page experiences for nonprofit and business clients.",
+  "Shipped a branded hero and UI refresh for a travel platform.",
+  "Created an AI-assisted portfolio experience with clear, recruiter-friendly UX."
+];
 export const howIBuiltThis = {
   title: "How I built this",
   items: [
