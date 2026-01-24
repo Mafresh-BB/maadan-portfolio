@@ -21,7 +21,7 @@ export const CallToAction = ({ scrollToContact }: { scrollToContact: () => void 
                   Let's Build Together
                 </h2>
                 <p className="text-blue-100 text-lg leading-relaxed">
-                  Looking for a junior developer who is consistent, coachable, and focused on clean UI?
+                  Looking for a developer who is consistent, coachable, and focused on clean UI?
                 </p>
                 <p className="text-white font-medium text-lg">
                   {personalInfo.lookingFor}.
