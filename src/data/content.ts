@@ -11,7 +11,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/abdulyekeenmaadan",
   twitter: "https://x.com/Olamails_",
   avatar: "/profile.webp",
-  resumePdf: "/Abdulyekeen-Maadan-CV.pdf",
+  resumePdf: "/Abdulyekeen-Maadan-Resume.pdf",
   availability: "Available for full-time roles (Remote/Hybrid)",
   lookingFor: "Junior Frontend or Internship roles with mentorship",
   stackSummary: "React • TypeScript • Tailwind",
@@ -152,6 +152,13 @@ export const braggingRights = [
   "Built an AI-powered portfolio from scratch"
 ];
 
+export const resumeHighlights = [
+  "Built responsive multi-page experiences for nonprofit and business clients.",
+  "Shipped a branded hero and UI refresh for a travel platform.",
+  "Created an AI-assisted portfolio experience with clear, recruiter-friendly UX."
+];
+
+
 export const testimonials: Testimonial[] = [
   {
     name: "Janet Fayemi",
@@ -161,3 +168,33 @@ export const testimonials: Testimonial[] = [
     text: "I'm thrilled to share my positive experience working with Abdulyekeen on the website for the Jaytee Fayemi Foundation. The website is visually appealing and perfectly reflects our mission. He was attentive to our needs and delivered a product that exceeds our expectations."
   }
 ];
+
+export const howIBuiltThis = {
+  title: "How I built this",
+  items: [
+    {
+      label: "Stack",
+      text: "React 19 + Vite, styled with Tailwind CSS v4."
+    },
+    {
+      label: "Structure",
+      text: "Component-based sections (Hero, About, Experience, Projects, etc.) with content separated into a typed content.ts file for easy updates."
+    },
+    {
+      label: "Navigation",
+      text: "Smooth scrolling via scrollIntoView and an active-section scroll spy that updates the navbar based on section offsets."
+    },
+    {
+      label: "Performance & monitoring",
+      text: "Vercel Analytics + Speed Insights to track real-user metrics and page performance."
+    },
+    {
+      label: "Accessibility",
+      text: "Semantic sections, clear heading structure, keyboard-friendly links/buttons, and focus-visible styles on primary actions."
+    },
+    {
+      label: "Deployment",
+      text: "Deployed on Vercel."
+    }
+  ]
+};
