@@ -100,7 +100,7 @@ export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(99,102,241,0.18),transparent_60%)]" />
                     {!imgError ? (
                       <img
-                        src="/hero-transparent.png"
+                        src="/images/hero-transparent.png"
                         alt={`${personalInfo.name} portrait`}
                         className="w-full h-full object-cover object-[50%_20%]"
                         onError={() => setImgError(true)}
@@ -169,6 +169,17 @@ export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
                 >
                   <Download size={20} />
                   View Resume
+                </a>
+
+                <a
+                  href={personalInfo.resumePdfBranded}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-5 py-2.5 sm:px-8 sm:py-3.5 text-sm sm:text-base bg-white/70 dark:bg-white/5 text-gray-800 dark:text-white font-bold rounded-xl border border-gray-200/70 dark:border-white/20 hover:border-gray-300 dark:hover:border-white/60 hover:bg-gray-50 dark:hover:bg-white/10 transition-all hover:-translate-y-1 flex items-center justify-center gap-2 shadow-sm
+                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50 dark:focus-visible:ring-offset-slate-950"
+                >
+                  <Download size={20} />
+                  Branded Resume
                 </a>
               </div>
 

@@ -48,6 +48,16 @@ export const CallToAction = ({ scrollToContact }: { scrollToContact: () => void 
                     <FileText size={20} />
                     View My Resume
                   </a>
+
+                  <a 
+                    href={personalInfo.resumePdfBranded} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border-2 border-white/30 text-white font-bold rounded-xl hover:bg-white/20 transition-all hover:border-white"
+                  >
+                    <FileText size={20} />
+                    Branded Resume
+                  </a>
                 </div>
               </div>
 
@@ -57,7 +67,7 @@ export const CallToAction = ({ scrollToContact }: { scrollToContact: () => void 
                   <div className="absolute inset-0 bg-linear-to-tr from-blue-400 to-indigo-400 rounded-2xl transform rotate-6 opacity-50 group-hover:rotate-3 transition-transform duration-500 blur-sm"></div>
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 aspect-video md:aspect-square lg:aspect-video bg-gray-800">
                     <img 
-                      src="./workspace.webp" 
+                      src="/images/workspace.webp" 
                       alt="Developer Workspace" 
                       className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />

@@ -10,8 +10,9 @@ export const personalInfo = {
   github: "https://github.com/Mafresh-BB",
   linkedin: "https://www.linkedin.com/in/abdulyekeenmaadan",
   twitter: "https://x.com/Olamails_",
-  avatar: "/profile.webp",
-  resumePdf: "/Abdulyekeen-Maadan-Resume.pdf",
+  avatar: "/images/profile.webp",
+  resumePdf: "/resume/Abdulyekeen-Maadan-Resume.pdf",
+  resumePdfBranded: "/resume/Abdulyekeen-Maadan-Resume-branded.pdf",
   availability: "Available for full-time roles (Remote/Hybrid)",
   lookingFor: "Junior Frontend or Internship roles with mentorship",
   stackSummary: "React • TypeScript • Tailwind",
@@ -38,7 +39,7 @@ export const experiences: Experience[] = [
     role: "STEM Educator (NYSC)",
     company: "Royal Brook International School",
     period: "Dec 2024 - Dec 2025",
-    image: "/nysc-professional.jpg",
+    image: "/images/nysc-professional.jpg",
     description: [
       "Taught Mathematics and Further Mathematics to SSS 1-3, breaking down complex logic into understandable concepts.",
       "Managed classroom performance data to identify learning gaps and adjust teaching strategies.",
@@ -78,7 +79,7 @@ export const projects: Project[] = [
       "Design: Refreshed the brand identity (Logo & Color Palette).",
       "Outcome: delivered a modern, mobile-responsive landing page component."
     ],
-    image: "/ensii.jpg",
+    image: "/images/ensii.jpg",
     link: "https://ensiisafaris.ca/"
   },
   {
@@ -89,7 +90,7 @@ export const projects: Project[] = [
       "Feature: Integrated a custom AI assistant to answer questions about my resume.",
       "Tech: Used Vercel SDK and Gemini API for real-time responses."
     ],
-    image: "/project1_dark.webp",
+    image: "/images/project1_dark.webp",
     link: "https://maadan-portfolio.vercel.app"
   },
   {
@@ -100,7 +101,7 @@ export const projects: Project[] = [
       "Work: Configured responsive themes and managed content structure.",
       "Focus: Accessibility and content readability."
     ],
-    image: "/project2.jpg",
+    image: "/images/project2.jpg",
     link: "https://www.jtffoundation.org"
   }
 ];
@@ -109,7 +110,7 @@ export const education: Education = {
   degree: "Bachelor of Science (B.Sc.) in Mathematics",
   school: "Federal University of Agriculture, Abeokuta",
   period: "Oct 2019 - Aug 2024",
-  image: "/convocation.jpg",
+  image: "/images/convocation.jpg",
   details: [
     "Final Year Project: 'Some Application of First Order Delay Differential Equation in Biology.'",
     "Applied mathematical logic to software algorithms and state management complexity."
