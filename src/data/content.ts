@@ -106,6 +106,14 @@ export const projects: Project[] = [
   }
 ];
 
+export const otherCompetence = {
+  label: "Other competence",
+  items: [
+    "Graphic design (brand identity, flyers, business cards).",
+    "Tools: Adobe Photoshop, Canva."
+  ]
+};
+
 export const education: Education = {
   degree: "Bachelor of Science (B.Sc.) in Mathematics",
   school: "Federal University of Agriculture, Abeokuta",

@@ -1,94 +1,77 @@
 import { Terminal, Star, ArrowRight, Layout, Database, Github, GraduationCap } from 'lucide-react';
-import { personalInfo, skills, journey, braggingRights, resumeHighlights } from '../../data/content';
+import { personalInfo, skills, journey, braggingRights, resumeHighlights, otherCompetence } from '../../data/content';
 import { SectionTitle } from '../ui/SectionTitle';
 import { Card } from '../ui/Card';
 import { RevealOnScroll } from '../ui/RevealOnScroll';
 
 export const About = () => {
-  // Duplicate skills to create seamless loop
   const duplicatedSkills = [...skills, ...skills];
 
   return (
     <section id="about" className="py-24 bg-white dark:bg-gray-800 relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle subtitle="about">My Journey & Skills</SectionTitle>
-        
-        {/* Journey Section - Mobile: 1 column, Desktop: 3 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 md:mb-20">
-          {journey.map((step, idx) => (
-            <RevealOnScroll key={idx}>
-            <div className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full">
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <ArrowRight size={48} className="text-blue-600 dark:text-blue-400" />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+          <div className="lg:col-span-5 space-y-6">
+            <RevealOnScroll>
+              <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 border border-gray-100 dark:border-gray-700">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-3 text-lg sm:text-xl">
+                  Profile
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                  {personalInfo.about}
+                </p>
               </div>
-              <div className="text-blue-600 dark:text-blue-400 font-bold mb-2">{step.year}</div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3">{step.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{step.description}</p>
-            </div>
-            </RevealOnScroll>
-          ))}
-        </div>
 
-        {/* Main Content Grid - Mobile: 1 column, Desktop: 12 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
-          {/* Bragging Rights */}
-          <div className="md:col-span-6 space-y-8">
-             <RevealOnScroll>
-             {/* Adjusted padding: p-6 on mobile, p-8 on desktop */}
-             <div className="bg-blue-50/50 dark:bg-blue-900/10 rounded-3xl p-6 md:p-8 border border-blue-100 dark:border-blue-900/30">
-               <h3 className="font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2 text-lg sm:text-xl">
-                <Star className="text-yellow-400 fill-yellow-400" />
-                What I'm Proud Of
-              </h3>
-              <ul className="space-y-4">
-                {braggingRights.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">{">>"}</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 border border-gray-100 dark:border-gray-700">
-              <h3 className="font-bold text-gray-900 dark:text-white mb-5 text-lg sm:text-xl">
-                Resume Highlights
-              </h3>
-              <ul className="space-y-4">
-                {resumeHighlights.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-gray-700 dark:text-gray-300 text-sm">
-                    <span className="w-2 h-2 mt-2 rounded-full bg-blue-500 shrink-0"></span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <div className="bg-blue-50/50 dark:bg-blue-900/10 rounded-3xl p-6 md:p-8 border border-blue-100 dark:border-blue-900/30">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2 text-lg sm:text-xl">
+                  <Star className="text-yellow-400 fill-yellow-400" />
+                  What I'm Proud Of
+                </h3>
+                <ul className="space-y-4">
+                  {braggingRights.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
+                        {">>"}
+                      </span>
+                      <span className="text-gray-700 dark:text-gray-300 font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <div className="prose prose-lg text-gray-600 dark:text-gray-300 leading-loose mt-8">
-               <p className="italic border-l-4 border-blue-200 dark:border-blue-800 pl-4 py-2">
-                 "{personalInfo.about}"
-               </p>
-            </div>
+              <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 border border-gray-100 dark:border-gray-700">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg sm:text-xl">
+                  {otherCompetence.label}
+                </h3>
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                  {otherCompetence.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="w-2 h-2 mt-2 rounded-full bg-blue-500 shrink-0"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </RevealOnScroll>
           </div>
 
-          {/* Tech Stack Marquee & Cards */}
-          <div className="md:col-span-6">
-             <RevealOnScroll>
-             <div className="bg-gray-900 dark:bg-black text-white rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-xl">
+          <div className="lg:col-span-7 space-y-6">
+            <RevealOnScroll>
+              <div className="bg-gray-900 dark:bg-black text-white rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-xl">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-20 -mr-16 -mt-16"></div>
-                
+
                 <h3 className="font-bold mb-6 flex items-center gap-2 text-lg sm:text-xl relative z-10">
                   <Terminal size={22} className="text-blue-400" />
                   Technical Stack
                 </h3>
-                
-                {/* Marquee Container */}
+
                 <div className="relative w-full overflow-hidden z-10 py-4">
                   <div className="flex gap-4 animate-marquee whitespace-nowrap">
                     {duplicatedSkills.map((skill, idx) => (
-                      <span 
-                        key={idx} 
+                      <span
+                        key={idx}
                         className="inline-block px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-lg backdrop-blur-sm border border-white/10 transition-colors cursor-default"
                       >
                         {skill}
@@ -96,29 +79,59 @@ export const About = () => {
                     ))}
                   </div>
                 </div>
-             </div>
-             </RevealOnScroll>
+              </div>
+            </RevealOnScroll>
 
-             {/* Skills Grid - Mobile: 1 column, Tablet+: 2 columns */}
-             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-               {[
-                 { icon: Layout, title: "Frontend", sub: "HTML, CSS, JS", color: "text-blue-600", bg: "bg-blue-50" },
-                 { icon: Database, title: "Data & APIs", sub: "REST basics", color: "text-green-600", bg: "bg-green-50" },
-                 { icon: Github, title: "Workflow", sub: "Git basics", color: "text-purple-600", bg: "bg-purple-50" },
-                 { icon: GraduationCap, title: "Problem Solving", sub: "Math background", color: "text-orange-600", bg: "bg-orange-50" }
-               ].map((item, idx) => (
-                 <RevealOnScroll key={idx}>
-                 <Card className="flex flex-col items-center justify-center text-center p-6 h-full border-transparent hover:border-gray-200 dark:hover:border-gray-700">
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: Layout, title: "Frontend", sub: "HTML, CSS, JS", color: "text-blue-600", bg: "bg-blue-50" },
+                { icon: Database, title: "Data & APIs", sub: "REST basics", color: "text-green-600", bg: "bg-green-50" },
+                { icon: Github, title: "Workflow", sub: "Git basics", color: "text-purple-600", bg: "bg-purple-50" },
+                { icon: GraduationCap, title: "Problem Solving", sub: "Math background", color: "text-orange-600", bg: "bg-orange-50" }
+              ].map((item, idx) => (
+                <RevealOnScroll key={idx}>
+                  <Card className="flex flex-col items-center justify-center text-center p-6 h-full border-transparent hover:border-gray-200 dark:hover:border-gray-700">
                     <div className={`w-14 h-14 ${item.bg} dark:bg-gray-700 ${item.color} dark:text-gray-200 rounded-2xl flex items-center justify-center mb-4 shadow-sm`}>
                       <item.icon size={28} />
                     </div>
                     <h4 className="font-bold text-gray-900 dark:text-white text-lg">{item.title}</h4>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 font-medium">{item.sub}</p>
-                 </Card>
-                 </RevealOnScroll>
-               ))}
-             </div>
+                  </Card>
+                </RevealOnScroll>
+              ))}
+            </div>
+
+            <RevealOnScroll>
+              <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 border border-gray-100 dark:border-gray-700">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-5 text-lg sm:text-xl">
+                  Resume Highlights
+                </h3>
+                <ul className="space-y-4">
+                  {resumeHighlights.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-gray-700 dark:text-gray-300 text-sm">
+                      <span className="w-2 h-2 mt-2 rounded-full bg-blue-500 shrink-0"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </RevealOnScroll>
           </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 md:mt-20">
+          {journey.map((step, idx) => (
+            <RevealOnScroll key={idx}>
+              <div className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <ArrowRight size={48} className="text-blue-600 dark:text-blue-400" />
+                </div>
+                <div className="text-blue-600 dark:text-blue-400 font-bold mb-2">{step.year}</div>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3">{step.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{step.description}</p>
+              </div>
+            </RevealOnScroll>
+          ))}
         </div>
       </div>
     </section>

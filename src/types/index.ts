@@ -12,6 +12,7 @@ export interface Project {
   description: string[];
   link?: string;
   image?: string;
+  gallery?: string[];
 }
 
 export interface Education {

@@ -44,7 +44,21 @@ export const Projects = () => {
                 )}
 
               </div>
-              
+
+              {project.gallery && project.gallery.length > 0 ? (
+                <div className="grid grid-cols-2 gap-2 px-4 py-3 bg-white dark:bg-gray-700 border-b border-gray-100 dark:border-gray-600">
+                  {project.gallery.slice(0, 2).map((imageSrc, galleryIndex) => (
+                    <div key={imageSrc} className="h-20 rounded-xl overflow-hidden border border-gray-100 dark:border-gray-600 bg-gray-50 dark:bg-gray-800">
+                      <img
+                        src={imageSrc}
+                        alt={`${project.title} gallery ${galleryIndex + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+
               <div className="p-6 md:p-8 flex flex-col grow">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{project.title}</h3>
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -62,17 +76,19 @@ export const Projects = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto pt-6 border-t border-gray-50 dark:border-gray-600">
-                   <a 
-                     href={project.link || "#"} 
-                     target="_blank"
-                     rel="noreferrer"
-                     className="inline-flex items-center text-gray-900 dark:text-white font-semibold text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors group/link"
-                   >
-                     View Live Project 
-                     <ExternalLink size={16} className="ml-2 group-hover/link:translate-x-1 transition-transform" />
-                   </a>
-                </div>
+                {project.link ? (
+                  <div className="mt-auto pt-6 border-t border-gray-50 dark:border-gray-600">
+                    <a 
+                      href={project.link} 
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center text-gray-900 dark:text-white font-semibold text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors group/link"
+                    >
+                      View Live Project 
+                      <ExternalLink size={16} className="ml-2 group-hover/link:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
+                ) : null}
               </div>
             </div>
             </RevealOnScroll>
