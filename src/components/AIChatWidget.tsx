@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Sparkles, X, Bot, Loader2, Send } from 'lucide-react';
+import { track } from '@vercel/analytics';
 import { generateGeminiResponse } from '../utils/gemini';
 import type { ChatMessage } from '../types';
 
@@ -26,9 +27,11 @@ export const AIChatWidget = () => {
     const userText = input;
     setInput("");
     setMessages(prev => [...prev, { role: 'user', text: userText }]);
+    track('AI_Question', { question: userText });
     setIsLoading(true);
 
     const aiResponse = await generateGeminiResponse(messages, userText);
+    track('AI_Response', { question: userText, answer: aiResponse });
 
     setMessages(prev => [...prev, { role: 'model', text: aiResponse }]);
     setIsLoading(false);
