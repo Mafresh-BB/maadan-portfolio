@@ -100,7 +100,7 @@ export const Hero = ({ scrollToContact }: { scrollToContact: () => void }) => {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(99,102,241,0.18),transparent_60%)]" />
                     {!imgError ? (
                       <img
-                        src="/images/hero-transparent.png"
+                        src="/images/hero-transparent.webp"
                         alt={`${personalInfo.name} portrait`}
                         className="w-full h-full object-cover object-[50%_20%]"
                         onError={() => setImgError(true)}

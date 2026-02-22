@@ -39,7 +39,7 @@ export const experiences: Experience[] = [
     role: "STEM Educator (NYSC)",
     company: "Royal Brook International School",
     period: "Dec 2024 - Dec 2025",
-    image: "/images/nysc-professional.jpg",
+    image: "/images/nysc-professional.webp",
     description: [
       "Taught Mathematics and Further Mathematics to SSS 1-3, breaking down complex logic into understandable concepts.",
       "Managed classroom performance data to identify learning gaps and adjust teaching strategies.",
@@ -71,6 +71,17 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
+    title: "Amb. (Dr.) Alabi Issa Executive Portfolio",
+    tech: ["React", "JavaScript", "Tailwind CSS"],
+    description: [
+      "Role: Frontend Developer.",
+      "Goal: Build a high-profile executive presence.",
+      "Design: Implemented a modern, authoritative design system."
+    ],
+    image: "/images/segunalabi.webp",
+    link: "https://segunalabi.me"
+  },
+  {
     title: "ATEKER Luxury Safaris Platform",
     tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
     description: [
@@ -79,7 +90,7 @@ export const projects: Project[] = [
       "Design: Refreshed the brand identity (Logo & Color Palette).",
       "Outcome: delivered a modern, mobile-responsive landing page component."
     ],
-    image: "/images/ensii.jpg",
+    image: "/images/ensii.webp",
     link: "https://ensiisafaris.ca/"
   },
   {
@@ -101,7 +112,7 @@ export const projects: Project[] = [
       "Work: Configured responsive themes and managed content structure.",
       "Focus: Accessibility and content readability."
     ],
-    image: "/images/project2.jpg",
+    image: "/images/project2.webp",
     link: "https://www.jtffoundation.org"
   }
 ];
@@ -118,7 +129,7 @@ export const education: Education = {
   degree: "Bachelor of Science (B.Sc.) in Mathematics",
   school: "Federal University of Agriculture, Abeokuta",
   period: "Oct 2019 - Aug 2024",
-  image: "/images/convocation.jpg",
+  image: "/images/convocation.webp",
   details: [
     "Final Year Project: 'Some Application of First Order Delay Differential Equation in Biology.'",
     "Applied mathematical logic to software algorithms and state management complexity."
