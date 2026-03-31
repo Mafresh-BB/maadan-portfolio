@@ -23,18 +23,35 @@ export const articles: Article[] = [];
 
 export const skills = [
   "JavaScript (ES6+)",
+  "Go (Golang)",
   "React (Hooks, Components)",
   "TypeScript (Interfaces/Types)",
   "Vite",
   "Tailwind CSS",
+  "Unix Shell & Terminal",
   "Git/GitHub",
   "REST API Integration",
+  "Algorithms & Data Structures",
   "Accessibility (Semantic HTML, WCAG)",
   "Figma (Design-to-Code)",
   "Lighthouse Performance Tuning"
 ];
 
 export const experiences: Experience[] = [
+  {
+    role: "Software Engineering Piscine (Cadet)",
+    company: "Learn2Earn · 01-edu Platform",
+    period: "Mar 2026",
+    description: [
+      "Completed a 4-week high-intensity 'sink or swim' immersion using 01-edu's teacher-less, peer-to-peer, project-based learning model—zero traditional instruction, strict deadlines.",
+      "Foundations: Deep-dived into Unix Shell & Terminal logic, mastering navigation, scripting, and environment control before writing application code.",
+      "Progressed from zero Go (Golang) knowledge to advanced algorithmic logic—growing from a 28% completion rate (Week 1) to 65% by the final checkpoint.",
+      "Engineered a recursive Sudoku Solver and a Quadchecker pattern-recognition engine.",
+      "Built a functional Brainfuck Interpreter, managing virtual memory tapes and program counters.",
+      "Implemented Stacks (LIFO) for RPN calculators and used Bitmasking for efficient system options management.",
+      "Acted as the technical anchor during team Raids—solved critical logic blocks in the Final Raid that the team could not resolve, securing a passing grade for the group."
+    ]
+  },
   {
     role: "STEM Educator (NYSC)",
     company: "Royal Brook International School",
@@ -150,11 +167,20 @@ export const journey: JourneyStep[] = [
   {
     year: "Dec 2025",
     title: "Ready to Deploy",
-    description: "Completed National Service (NYSC). I am now fully available for full-time opportunities, eager to apply my math background and coding skills in a real team."
+    description: "Completed National Service (NYSC). Fully available for full-time opportunities, eager to apply my math background and coding skills in a real team."
+  },
+  {
+    year: "Mar 2026",
+    title: "The Piscine — Sink or Swim",
+    description: "Survived Learn2Earn's 4-week high-intensity engineering immersion. Went from zero Go knowledge to building Sudoku solvers and Brainfuck interpreters—growing from 28% to 65% completion rate. Led my team through the Final Raid as technical anchor."
   }
 ];
 
 export const braggingRights = [
+  "Completed Learn2Earn Piscine — 4-week 'sink or swim' engineering immersion (01-edu)",
+  "Grew from 28% to 65% logic completion in Go within 4 weeks",
+  "Built a recursive Sudoku Solver and Brainfuck Interpreter from scratch",
+  "Led Final Raid as technical anchor, solving critical blocks for the team",
   "Data Analysis with Python Certified (AQskill)",
   "FreeCodeCamp Responsive Web Design certified (2022)",
   "Completed NYSC as a STEM Educator (Mathematics)",
