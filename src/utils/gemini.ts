@@ -1,10 +1,10 @@
 import type { ChatMessage } from '../types';
 // IMPORT ALL THE NEW DATA HERE
-import { 
-  personalInfo, 
-  skills, 
-  experiences, 
-  projects, 
+import {
+  personalInfo,
+  skills,
+  experiences,
+  projects,
   education,
   journey,          // <--- New
   braggingRights,   // <--- New
@@ -56,7 +56,7 @@ export async function generateGeminiResponse(_history: ChatMessage[], userMessag
 
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
       {
         method: "POST",
         headers: {
@@ -74,8 +74,10 @@ export async function generateGeminiResponse(_history: ChatMessage[], userMessag
     );
 
     if (!response.ok) {
-        console.error("API Error");
-        return "I'm currently unable to connect to the brain 🧠. Please feel free to email Abdulyekeen directly!";
+      const errorText = await response.text();
+      console.error("API Error Response:", errorText);
+      console.error("Using API Key starting with:", apiKey ? apiKey.substring(0, 5) + "..." : "EMPTY");
+      return "I'm currently unable to connect to the brain 🧠. Please feel free to email Abdulyekeen directly!";
     }
 
     const data = await response.json();
