@@ -1,35 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { SmoothScroll } from './components/ui/SmoothScroll';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { BackToTop } from './components/ui/BackToTop';
+import { CustomCursor } from './components/ui/CustomCursor';
+import { CommandPalette } from './components/ui/CommandPalette';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Experience } from './components/sections/Experience';
+import { LogicEngines } from './components/sections/LogicEngines';
 import { Projects } from './components/sections/Projects';
 import { Testimonials } from './components/sections/Testimonials';
 import { Education } from './components/sections/Education';
-import { CallToAction } from './components/sections/CallToAction';
 import { Contact } from './components/sections/Contact';
 import { AIChatWidget } from './components/AIChatWidget';
-import { HowIBuiltThis } from './components/sections/HowIBuiltThis';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [chatOpen, setChatOpen] = useState(false);
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = useCallback((id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setActiveSection(id);
     }
-  };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Removed 'writing' from spy list
-      const sections = ['home', 'about', 'experience', 'projects', 'how', 'testimonials', 'education', 'contact'];
+      const sections = ['home', 'about', 'experience', 'logic-engines', 'projects', 'testimonials', 'education', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -45,106 +47,27 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 font-sans text-gray-800 dark:text-gray-100 transition-colors duration-300">
-      
-       <style>{`
-        @keyframes blob {
-          0% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-          100% { transform: translate(0px, 0px) scale(1); }
-        }
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-        .bg-grid-pattern {
-          background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
-            linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
-          background-size: 40px 40px;
-        }
-        .dark .bg-grid-pattern {
-           background-image: linear-gradient(to right, #374151 1px, transparent 1px),
-            linear-gradient(to bottom, #374151 1px, transparent 1px);
-        }
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          animation: marquee 25s linear infinite;
-        }
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
-        @keyframes float {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-          100% { transform: translateY(0px); }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        .animation-delay-1000 {
-          animation-delay: 1s;
-        }
-        .animation-delay-3000 {
-          animation-delay: 3s;
-        }
-        @keyframes slow-spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .animate-slow-spin {
-          animation: slow-spin 24s linear infinite;
-        }
-        @keyframes glow-pulse {
-          0%, 100% { opacity: 0.35; transform: scale(0.98); }
-          50% { opacity: 0.7; transform: scale(1.02); }
-        }
-        .animate-glow {
-          animation: glow-pulse 5s ease-in-out infinite;
-        }
-        @keyframes orbit {
-          0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
-          100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
-        }
-        .animate-orbit {
-          animation: orbit 12s linear infinite;
-        }
-        @keyframes orbit-wide {
-          0% { transform: rotate(0deg) translateX(180px) rotate(0deg); }
-          100% { transform: rotate(-360deg) translateX(180px) rotate(360deg); }
-        }
-        .animate-orbit-wide {
-          animation: orbit-wide 18s linear infinite;
-        }
-      `}</style>
+    <SmoothScroll>
+      <div className="min-h-screen bg-gray-50 dark:bg-[#0b1220] font-sans text-gray-800 dark:text-gray-100 transition-colors duration-300 overflow-x-hidden">
+        <CustomCursor />
+        <CommandPalette scrollToSection={scrollToSection} onOpenChat={() => setChatOpen(true)} />
+        <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
 
-      <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
+        <Hero scrollToContact={() => scrollToSection('contact')} />
+        <About />
+        <Experience />
+        <LogicEngines />
+        <Projects />
+        <Testimonials />
+        <Education />
+        <Contact />
+        <Footer />
 
-      <Hero scrollToContact={() => scrollToSection('contact')} />
-      <About />
-      <Experience />
-      <Projects />
-      <HowIBuiltThis />
-      {/* Writing Section removed until you have articles */}
-      <Testimonials />
-      <Education />
-      <CallToAction scrollToContact={() => scrollToSection('contact')} />
-      <Contact />
-      <Footer />
- 
-      <AIChatWidget />
-      <BackToTop />
-      <Analytics />
-      <SpeedInsights />
-      
-    </div>
+        <AIChatWidget externalOpen={chatOpen} onExternalClose={() => setChatOpen(false)} />
+        <BackToTop />
+        <Analytics />
+        <SpeedInsights />
+      </div>
+    </SmoothScroll>
   );
 }

@@ -1,4 +1,4 @@
-import type { Experience, Project, Education, JourneyStep, Testimonial, Article } from '../types';
+import type { Experience, Project, Education as EducationType, JourneyStep, Testimonial, Article } from '../types';
 
 export const personalInfo = {
   name: "ABDULYEKEEN MAADAN",
@@ -15,7 +15,7 @@ export const personalInfo = {
   resumePdfBranded: "/resume/Abdulyekeen-Maadan-Resume-branded.pdf",
   availability: "Available for full-time roles (Remote/Hybrid)",
   lookingFor: "Junior Frontend or Internship roles with mentorship",
-  stackSummary: "React • TypeScript • Tailwind",
+  stackSummary: "React • TypeScript • Tailwind • Go",
   about: "A disciplined Frontend Developer with a B.Sc. in Mathematics. I build responsive, accessible web interfaces and am currently focused on mastering React ecosystems. I am looking for a team where I can contribute immediately while growing under senior mentorship."
 };
 
@@ -42,6 +42,7 @@ export const experiences: Experience[] = [
     role: "Software Engineering Piscine (Cadet)",
     company: "Learn2Earn · 01-edu Platform",
     period: "Mar 2026",
+    image: "/images/piscine-office.png",
     description: [
       "Completed a 4-week high-intensity 'sink or swim' immersion using 01-edu's teacher-less, peer-to-peer, project-based learning model—zero traditional instruction, strict deadlines.",
       "Foundations: Deep-dived into Unix Shell & Terminal logic, mastering navigation, scripting, and environment control before writing application code.",
@@ -142,16 +143,20 @@ export const otherCompetence = {
   ]
 };
 
-export const education: Education = {
-  degree: "Bachelor of Science (B.Sc.) in Mathematics",
-  school: "Federal University of Agriculture, Abeokuta",
-  period: "Oct 2019 - Aug 2024",
-  image: "/images/convocation.webp",
-  details: [
-    "Final Year Project: 'Some Application of First Order Delay Differential Equation in Biology.'",
-    "Applied mathematical logic to software algorithms and state management complexity."
-  ]
-};
+export const education: EducationType[] = [
+  {
+    degree: "Bachelor of Science (B.Sc.) in Mathematics",
+    school: "Federal University of Agriculture, Abeokuta",
+    period: "Oct 2019 - Aug 2024",
+    location: "Abeokuta, Nigeria",
+    image: "/images/convocation.webp",
+    description: "Final Year Project: 'Some Application of First Order Delay Differential Equation in Biology.' Applied mathematical logic to software algorithms and state management complexity.",
+    details: [
+      "Final Year Project: 'Some Application of First Order Delay Differential Equation in Biology.'",
+      "Applied mathematical logic to software algorithms and state management complexity."
+    ]
+  }
+];
 
 export const journey: JourneyStep[] = [
   {
@@ -204,32 +209,4 @@ export const resumeHighlights = [
   "Shipped a branded hero and UI refresh for a travel platform.",
   "Created an AI-assisted portfolio experience with clear, recruiter-friendly UX."
 ];
-export const howIBuiltThis = {
-  title: "How I built this",
-  items: [
-    {
-      label: "Stack",
-      text: "React 19 + Vite, styled with Tailwind CSS v4."
-    },
-    {
-      label: "Structure",
-      text: "Component-based sections (Hero, About, Experience, Projects, etc.) with content separated into a typed content.ts file for easy updates."
-    },
-    {
-      label: "Navigation",
-      text: "Smooth scrolling via scrollIntoView and an active-section scroll spy that updates the navbar based on section offsets."
-    },
-    {
-      label: "Performance & monitoring",
-      text: "Vercel Analytics + Speed Insights to track real-user metrics and page performance."
-    },
-    {
-      label: "Accessibility",
-      text: "Semantic sections, clear heading structure, keyboard-friendly links/buttons, and focus-visible styles on primary actions."
-    },
-    {
-      label: "Deployment",
-      text: "Deployed on Vercel."
-    }
-  ]
-};
+

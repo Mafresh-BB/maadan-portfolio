@@ -1,78 +1,82 @@
-import { Terminal, Star, ArrowRight, Layout, Database, Github, GraduationCap } from 'lucide-react';
-import { personalInfo, skills, journey, braggingRights, resumeHighlights, otherCompetence } from '../../data/content';
-import { SectionTitle } from '../ui/SectionTitle';
-import { Card } from '../ui/Card';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Terminal, Star, Layout, Database, Github, GraduationCap } from 'lucide-react';
+import { personalInfo, skills, braggingRights, resumeHighlights, otherCompetence } from '../../data/content';
 import { RevealOnScroll } from '../ui/RevealOnScroll';
+import { GlassCard } from '../ui/GlassCard';
 
 export const About = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'start start'],
+  });
+
+  // Circle expands as the section scrolls into viewport
+  const clipRadius = useTransform(scrollYProgress, [0, 0.8], [5, 150]);
+
   const duplicatedSkills = [...skills, ...skills];
 
   return (
-    <section id="about" className="py-24 bg-white dark:bg-gray-800 relative transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle subtitle="about">My Journey & Skills</SectionTitle>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
-          <div className="lg:col-span-5 space-y-6">
+    <section id="about" ref={sectionRef} className="relative min-h-screen transition-colors duration-300">
+      {/* Circle Reveal Mask */}
+      <motion.div
+        className="bg-white dark:bg-gray-900/95 transition-colors duration-300"
+        style={{
+          clipPath: useTransform(clipRadius, (v) => `circle(${v}% at 50% 50%)`),
+        }}
+      >
+        <div className="py-24 sm:py-32">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
             <RevealOnScroll>
-              <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 border border-gray-100 dark:border-gray-700">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-3 text-lg sm:text-xl">
-                  Profile
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+              <div className="text-center mb-20">
+                <span className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-600 dark:text-blue-400 mb-3 block">
+                  About
+                </span>
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+                  My Journey & Skills
+                </h2>
+                <p className="text-gray-500 dark:text-gray-400 mt-6 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
                   {personalInfo.about}
                 </p>
               </div>
-
-              <div className="bg-blue-50/50 dark:bg-blue-900/10 rounded-3xl p-6 md:p-8 border border-blue-100 dark:border-blue-900/30">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2 text-lg sm:text-xl">
-                  <Star className="text-yellow-400 fill-yellow-400" />
-                  What I'm Proud Of
-                </h3>
-                <ul className="space-y-4">
-                  {braggingRights.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
-                        {">>"}
-                      </span>
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 border border-gray-100 dark:border-gray-700">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg sm:text-xl">
-                  {otherCompetence.label}
-                </h3>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                  {otherCompetence.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2">
-                      <span className="w-2 h-2 mt-2 rounded-full bg-blue-500 shrink-0"></span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </RevealOnScroll>
-          </div>
 
-          <div className="lg:col-span-7 space-y-6">
+            {/* Skill Categories - Now a 2x2 grid with large icons */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
+              {[
+                { icon: Layout, title: 'Frontend', sub: 'React, TS, Tailwind', gradient: 'from-blue-500 to-cyan-400' },
+                { icon: Database, title: 'Backend / Logic', sub: 'Go, Algorithms', gradient: 'from-green-500 to-emerald-400' },
+                { icon: Github, title: 'Workflow', sub: 'Git, Unix Shell', gradient: 'from-purple-500 to-violet-400' },
+                { icon: GraduationCap, title: 'Problem Solving', sub: 'Math + Logic', gradient: 'from-orange-500 to-amber-400' },
+              ].map((item, idx) => (
+                <RevealOnScroll key={idx} delay={idx * 0.1} direction="scale">
+                  <GlassCard className="flex flex-col items-center justify-center text-center py-8 sm:py-10" glow>
+                    <div className={`w-16 h-16 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center mb-5 shadow-lg`}>
+                      <item.icon size={28} className="text-white" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg">{item.title}</h4>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{item.sub}</p>
+                  </GlassCard>
+                </RevealOnScroll>
+              ))}
+            </div>
+
+            {/* Skills Marquee - full width dark band */}
             <RevealOnScroll>
-              <div className="bg-gray-900 dark:bg-black text-white rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-xl">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-20 -mr-16 -mt-16"></div>
-
-                <h3 className="font-bold mb-6 flex items-center gap-2 text-lg sm:text-xl relative z-10">
-                  <Terminal size={22} className="text-blue-400" />
+              <div className="bg-gray-900 dark:bg-black/60 rounded-3xl p-6 sm:p-8 mb-16 relative overflow-hidden shadow-xl">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-15 -mr-16 -mt-16" />
+                <h3 className="font-bold text-white mb-5 flex items-center gap-2 text-base sm:text-lg relative z-10">
+                  <Terminal size={20} className="text-blue-400" />
                   Technical Stack
                 </h3>
-
-                <div className="relative w-full overflow-hidden z-10 py-4">
-                  <div className="flex gap-4 animate-marquee whitespace-nowrap">
+                <div className="relative w-full overflow-hidden z-10 py-2">
+                  <div className="flex gap-3 animate-marquee whitespace-nowrap">
                     {duplicatedSkills.map((skill, idx) => (
                       <span
                         key={idx}
-                        className="inline-block px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-lg backdrop-blur-sm border border-white/10 transition-colors cursor-default"
+                        className="inline-block px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-lg border border-white/10 transition-colors cursor-default"
                       >
                         {skill}
                       </span>
@@ -82,58 +86,65 @@ export const About = () => {
               </div>
             </RevealOnScroll>
 
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { icon: Layout, title: "Frontend", sub: "HTML, CSS, JS", color: "text-blue-600", bg: "bg-blue-50" },
-                { icon: Database, title: "Data & APIs", sub: "REST basics", color: "text-green-600", bg: "bg-green-50" },
-                { icon: Github, title: "Workflow", sub: "Git basics", color: "text-purple-600", bg: "bg-purple-50" },
-                { icon: GraduationCap, title: "Problem Solving", sub: "Math background", color: "text-orange-600", bg: "bg-orange-50" }
-              ].map((item, idx) => (
-                <RevealOnScroll key={idx}>
-                  <Card className="flex flex-col items-center justify-center text-center p-6 h-full border-transparent hover:border-gray-200 dark:hover:border-gray-700">
-                    <div className={`w-14 h-14 ${item.bg} dark:bg-gray-700 ${item.color} dark:text-gray-200 rounded-2xl flex items-center justify-center mb-4 shadow-sm`}>
-                      <item.icon size={28} />
-                    </div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-lg">{item.title}</h4>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 font-medium">{item.sub}</p>
-                  </Card>
-                </RevealOnScroll>
-              ))}
-            </div>
+            {/* Two-column: Bragging Rights + Resume Highlights */}
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
+              <RevealOnScroll direction="left">
+                <GlassCard className="h-full !bg-blue-50/60 dark:!bg-blue-900/10 !border-blue-100 dark:!border-blue-900/30">
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2 text-base sm:text-lg">
+                    <Star className="text-yellow-400 fill-yellow-400" size={20} />
+                    What I'm Proud Of
+                  </h3>
+                  <ul className="space-y-3">
+                    {braggingRights.map((item, idx) => (
+                      <motion.li
+                        key={idx}
+                        className="flex items-start gap-3"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.04, duration: 0.3 }}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
+                        <span className="text-gray-700 dark:text-gray-300 text-sm">{item}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </GlassCard>
+              </RevealOnScroll>
 
-            <RevealOnScroll>
-              <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 border border-gray-100 dark:border-gray-700">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-5 text-lg sm:text-xl">
-                  Resume Highlights
-                </h3>
-                <ul className="space-y-4">
-                  {resumeHighlights.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-700 dark:text-gray-300 text-sm">
-                      <span className="w-2 h-2 mt-2 rounded-full bg-blue-500 shrink-0"></span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="space-y-6">
+                <RevealOnScroll direction="right">
+                  <GlassCard>
+                    <h3 className="font-bold text-gray-900 dark:text-white mb-4 text-base sm:text-lg">Resume Highlights</h3>
+                    <ul className="space-y-3">
+                      {resumeHighlights.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-gray-600 dark:text-gray-300 text-sm">
+                          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </GlassCard>
+                </RevealOnScroll>
+
+                <RevealOnScroll direction="right" delay={0.1}>
+                  <GlassCard>
+                    <h3 className="font-bold text-gray-900 dark:text-white mb-3 text-base sm:text-lg">{otherCompetence.label}</h3>
+                    <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                      {otherCompetence.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 mt-2 rounded-full bg-purple-500 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </GlassCard>
+                </RevealOnScroll>
               </div>
-            </RevealOnScroll>
+            </div>
           </div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 md:mt-20">
-          {journey.map((step, idx) => (
-            <RevealOnScroll key={idx}>
-              <div className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full">
-                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <ArrowRight size={48} className="text-blue-600 dark:text-blue-400" />
-                </div>
-                <div className="text-blue-600 dark:text-blue-400 font-bold mb-2">{step.year}</div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3">{step.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{step.description}</p>
-              </div>
-            </RevealOnScroll>
-          ))}
-        </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
