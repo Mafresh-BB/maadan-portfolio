@@ -1,54 +1,20 @@
-export interface Experience {
-  role: string;
-  company: string;
-  period: string;
-  description: string[];
-  image?: string;
-}
-
 export interface Project {
   title: string;
-  tech: string[];
-  description: string[];
-  link?: string;
-  image?: string;
-  gallery?: string[];
-}
-
-export interface Education {
-  degree: string;
-  school: string;
-  period: string;
-  location?: string;
-  description?: string;
-  details: string[];
-  image?: string;
-}
-
-export interface ChatMessage {
-  role: 'user' | 'model';
-  text: string;
-}
-
-export interface JourneyStep {
-  year: string;
-  title: string;
-  description: string;
-}
-
-export interface Testimonial {
-  name: string;
   role: string;
-  company: string;
+  problem: string;
+  execution: string;
+  result: string;
+  tech: string[];
   image: string;
-  text: string;
+  link: string;
 }
 
-// Added Article interface to fix the error
-export interface Article {
+export interface Metric {
+  label: string;
+  value: string;
+}
+
+export interface SkillCategory {
   title: string;
-  excerpt: string;
-  date: string;
-  link: string;
-  platform: string;
+  skills: string[];
 }
