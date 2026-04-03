@@ -20,6 +20,25 @@ export const metrics: Metric[] = [
   { label: "Projects Built", value: "Multiple functional apps with React" }
 ];
 
+export const education = {
+  degree: "B.Sc. Mathematics",
+  institution: "Federal University of Agriculture, Abeokuta",
+  description: "A rigorous mathematical background fundamentally shaped my approach to software engineering. Rather than haphazardly throwing components together, I approach frontend problems as logical proofs—structuring state, breaking down recursion, and optimizing data flow with mathematical precision."
+};
+
+export const testimonials = [
+  {
+    quote: "Abdulyekeen brings a rare level of mathematical precision to UI development. He rebuilt our entire platform's frontend logic with zero layout shifts.",
+    author: "Client / Engineer",
+    role: "ATEKER Luxury Safaris"
+  },
+  {
+    quote: "During the Piscine, he tackled complex algorithmic challenges in Go with the same methodical approach he applies to React state management. Truly exceptional problem solver.",
+    author: "Peer Developer",
+    role: "01-edu Algorithmic Systems"
+  }
+];
+
 export const projects: Project[] = [
   {
     title: "ATEKER Luxury Safaris",
