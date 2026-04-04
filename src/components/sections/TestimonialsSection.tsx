@@ -18,7 +18,7 @@ export function TestimonialsSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12">
+      <div className="flex justify-center">
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={index}

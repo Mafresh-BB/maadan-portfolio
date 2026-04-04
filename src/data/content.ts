@@ -28,14 +28,9 @@ export const education = {
 
 export const testimonials = [
   {
-    quote: "Abdulyekeen brings a rare level of mathematical precision to UI development. He rebuilt our entire platform's frontend logic with zero layout shifts.",
-    author: "Client / Engineer",
-    role: "ATEKER Luxury Safaris"
-  },
-  {
-    quote: "During the Piscine, he tackled complex algorithmic challenges in Go with the same methodical approach he applies to React state management. Truly exceptional problem solver.",
-    author: "Peer Developer",
-    role: "01-edu Algorithmic Systems"
+    quote: "I'm thrilled to share my positive experience working with Abdulyekeen on the website for the Jaytee Fayemi Foundation. The website is visually appealing, well-organized, and perfectly reflects our mission and values. The design and functionality are top-notch, making it easy for our visitors to engage with our content. He was attentive to our needs and delivered a product that exceeds our expectations. For anyone looking for a skilled professional in web design, I highly recommend Abdulyekeen.",
+    author: "Janet Fayemi",
+    role: "Operations Coordinator & Nonprofit Program Leader"
   }
 ];
 

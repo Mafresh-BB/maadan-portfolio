@@ -4,6 +4,7 @@ import { personalInfo } from '../../data/content';
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,11 +53,32 @@ export function Navigation() {
             </a>
           </div>
 
-          {/* Mobile Menu Toggle (Simplified) */}
-          <button className="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
-            <span className="w-5 h-[2px] bg-white block"></span>
-            <span className="w-5 h-[2px] bg-white block"></span>
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="md:hidden flex flex-col gap-1.5 p-2 z-50 relative" 
+            aria-label="Menu"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <span className={`w-6 h-[2px] bg-white block transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[8px]' : ''}`}></span>
+            <span className={`w-6 h-[2px] bg-white block transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`w-6 h-[2px] bg-white block transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}></span>
           </button>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`md:hidden fixed inset-0 bg-[#0b1220]/95 backdrop-blur-xl transition-all duration-500 flex flex-col items-center justify-center gap-8 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+          <a href="#case-studies" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Work</a>
+          <a href="#method" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Methodology</a>
+          <a href="#contact" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Contact</a>
+          <a 
+            href={personalInfo.resumePdf} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            onClick={() => setIsOpen(false)}
+            className="font-mono text-sm uppercase tracking-widest text-[#0b1220] bg-white px-6 py-3 rounded-full mt-4"
+          >
+            Download Resume
+          </a>
         </div>
       </div>
     </motion.header>
