@@ -3,9 +3,9 @@ import type { Project, Metric, SkillCategory } from '../types';
 export const personalInfo = {
   name: "ABDULYEKEEN MAADAN",
   role: "Frontend Developer",
-  headline: "Frontend engineering with precision and clarity.",
-  subHeadline: "Background in mathematics. Focused on building clean, high-performance web applications with React.",
-  about: "I don't just assemble components. I solve state management and logic problems with mathematical precision. My journey started with a mathematics degree and accelerated through a ruthless 'sink or swim' software immersion. I work through problems independently, break down complex logic, and focus on getting things to work properly—not just look good.",
+  headline: "I build things that work for real people.",
+  subHeadline: "Mathematics graduate turned frontend developer. I ship client projects, build AI-powered tools, and learn fastest when the stakes are real.",
+  about: "I'm a 23-year-old self-taught developer based in Lagos. I studied Mathematics at FUNAAB, did NYSC as a STEM educator, and taught myself frontend development by building for real clients — not tutorials. My most recent project is a full-stack CV optimization tool I built using AI-augmented development: I direct AI agents with specific, narrow instructions to ship working products. I'm not a computer science engineer and I don't pretend to be. I'm someone who solves real problems, ships on deadline, and closes the gap between where I am and where I'm going — one project at a time.",
   email: "babatundemaadan@gmail.com",
   github: "https://github.com/Mafresh-BB",
   linkedin: "https://www.linkedin.com/in/abdulyekeenmaadan",
@@ -15,15 +15,15 @@ export const personalInfo = {
 };
 
 export const metrics: Metric[] = [
-  { label: "B.Sc. Mathematics", value: "Strong foundation in logic & problem solving" },
-  { label: "01-edu Piscine", value: "Intensive low-level programming (Go, algorithms)" },
-  { label: "Projects Built", value: "Multiple functional apps with React" }
+  { label: "Clients Shipped", value: "3+ paid projects delivered" },
+  { label: "Latest Build", value: "Full-stack AI product with real users" },
+  { label: "Stack", value: "React · TypeScript · Go · AI-Augmented" }
 ];
 
 export const education = {
   degree: "B.Sc. Mathematics",
   institution: "Federal University of Agriculture, Abeokuta",
-  description: "A rigorous mathematical background fundamentally shaped my approach to software engineering. Rather than haphazardly throwing components together, I approach frontend problems as logical proofs—structuring state, breaking down recursion, and optimizing data flow with mathematical precision."
+  description: "A mathematics degree taught me to break problems into provable steps before writing any code. That same discipline — structure first, then execution — shapes how I approach frontend architecture, state management, and debugging. I don't guess. I reason through it."
 };
 
 export const testimonials = [
@@ -36,24 +36,31 @@ export const testimonials = [
 
 export const projects: Project[] = [
   {
+    title: "NextRole NG",
+    role: "Builder — Full-Stack (AI-Augmented Development)",
+    problem: "Nigerian graduates send one generic CV to every role — Sales, Tech, Admin, Graduate Trainee programs. Global tools like Teal and Resume Worded don't understand NYSC, GTBank's 2:1 requirement, or Lagos private sector CV conventions.",
+    execution: "Built a two-phase Gemini AI pipeline: Phase 1 extracts verified CV facts, Phase 2 generates tailored rewrites and strategy. SSE streaming shows real results in ~15 seconds. Handles Canva CVs via multimodal PDF extraction. Click-to-edit inline CV editor with live PDF sync.",
+    result: "Launched April 13, 2026. Got organic traction on day one — real users sharing it in WhatsApp groups unprompted. No marketing spend.",
+    tech: ["Go", "React", "TypeScript", "Tailwind CSS", "Gemini API", "Supabase"],
+    image: "/nextrole-ng.gif",
+    link: "https://nextrole-ng.vercel.app",
+    featured: true,
+    highlights: [
+      "Two-phase AI pipeline separating fact extraction from generation to prevent hallucination",
+      "Role-specific prompt modules for 10 Nigerian job categories with hard-coded institutional knowledge",
+      "ATS-readable PDF generation with inline click-to-edit fields"
+    ]
+  },
+  {
     title: "ATEKER Luxury Safaris",
     role: "UI Developer (Contract)",
-    problem: "Needed a modern, responsive web presence that reflected the premium nature of their services.",
+    problem: "Needed a modern, responsive web presence that reflected the premium nature of their safari services.",
     execution: "Developed the responsive hero section, interactive horizontal scroll cards, and collaborated on a brand visual refresh using React, Tailwind, and Framer Motion.",
     result: "Delivered a mobile-optimized landing experience with improved usability and premium aesthetics.",
     tech: ["React", "TypeScript", "TailwindCSS", "Framer Motion"],
     image: "/images/ensii.webp",
-    link: "https://ensiisafaris.ca/"
-  },
-  {
-    title: "Algorithmic Systems (01-edu)",
-    role: "Learner / Systems Developer",
-    problem: "Master low-level programming concepts and algorithmic logic without formal instruction in a 4-week high-stakes environment.",
-    execution: "Engineered a Brainfuck interpreter managing virtual memory tapes, and a recursive Sudoku solver using Go. Operated as technical anchor during group raids.",
-    result: "Transitioned from zero Go knowledge to 65% completion rate.",
-    tech: ["Go (Golang)", "Unix Shell", "Algorithms", "Data Structures"],
-    image: "/images/piscine-office.png",
-    link: "https://github.com/Mafresh-BB" 
+    link: "https://ensiisafaris.ca/",
+    github: "https://github.com/Mafresh-BB"
   },
   {
     title: "Executive Persona Platform",
@@ -70,14 +77,14 @@ export const projects: Project[] = [
 export const skillCategories: SkillCategory[] = [
   {
     title: "Core Languages",
-    skills: ["JavaScript (ES6+)", "TypeScript", "Go (Golang)", "HTML5/CSS3"]
+    skills: ["JavaScript (ES6+)", "TypeScript", "Go (Learning)", "HTML5/CSS3"]
   },
   {
-    title: "Architecture & Frameworks",
-    skills: ["React 19", "Vite", "Tailwind CSS", "Framer Motion"]
+    title: "Frameworks & Tools",
+    skills: ["React", "Vite", "Tailwind CSS", "Framer Motion"]
   },
   {
-    title: "Tooling & DevOps",
-    skills: ["Git/GitHub", "Unix Shell", "REST APIs", "Performance Tuning"]
+    title: "Building & Shipping",
+    skills: ["Git/GitHub", "AI-Augmented Dev", "Supabase", "REST APIs", "Vercel"]
   }
 ];

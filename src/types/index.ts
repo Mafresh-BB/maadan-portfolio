@@ -7,6 +7,9 @@ export interface Project {
   tech: string[];
   image: string;
   link: string;
+  featured?: boolean;
+  highlights?: string[];
+  github?: string;
 }
 
 export interface Metric {
