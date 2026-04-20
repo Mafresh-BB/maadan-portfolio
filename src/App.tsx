@@ -1,23 +1,18 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
-import { HeroSection } from './components/sections/HeroSection';
-import { MetricsBar } from './components/sections/MetricsBar';
-import { CaseStudies } from './components/sections/CaseStudies';
-import { MethodSection } from './components/sections/MethodSection';
-import { EducationSection } from './components/sections/EducationSection';
-import { TestimonialsSection } from './components/sections/TestimonialsSection';
-import { ContactSection } from './components/sections/ContactSection';
+import { HomePage } from './pages/HomePage';
+import { BlogPost } from './pages/BlogPost';
 
 function App() {
   return (
-    <Layout>
-      <HeroSection />
-      <MetricsBar />
-      <CaseStudies />
-      <MethodSection />
-      <EducationSection />
-      <TestimonialsSection />
-      <ContactSection />
-    </Layout>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/blog/hallucination-architecture" element={<BlogPost />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 

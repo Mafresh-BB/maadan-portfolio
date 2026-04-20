@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import { personalInfo } from '../../data/content';
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isBlogPage = location.pathname.startsWith('/blog');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,16 +32,26 @@ export function Navigation() {
           scrolled ? 'md:bg-surface/80 md:backdrop-blur-md md:border md:border-border/50' : ''
         }`}>
           {/* Logo / Name */}
-          <a href="#" className="font-display font-semibold tracking-tight text-white flex gap-2 items-center">
+          <Link to="/" className="font-display font-semibold tracking-tight text-white flex gap-2 items-center">
             <span className="w-2 h-2 bg-text-primary rounded-full"></span>
             A. MAADAN
-          </a>
+          </Link>
 
           {/* Desktop Links */}
           <nav className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-text-secondary">
-            <a href="#case-studies" className="hover:text-text-primary transition-colors">Work</a>
-            <a href="#method" className="hover:text-text-primary transition-colors">Methodology</a>
-            <a href="#contact" className="hover:text-text-primary transition-colors">Contact</a>
+            {isBlogPage ? (
+              <>
+                <Link to="/" className="hover:text-text-primary transition-colors">Home</Link>
+                <Link to="/#case-studies" className="hover:text-text-primary transition-colors">Work</Link>
+                <Link to="/#contact" className="hover:text-text-primary transition-colors">Contact</Link>
+              </>
+            ) : (
+              <>
+                <a href="#case-studies" className="hover:text-text-primary transition-colors">Work</a>
+                <Link to="/blog/hallucination-architecture" className="hover:text-text-primary transition-colors">Writing</Link>
+                <a href="#contact" className="hover:text-text-primary transition-colors">Contact</a>
+              </>
+            )}
           </nav>
 
           {/* Right Action */}
@@ -67,9 +80,19 @@ export function Navigation() {
 
         {/* Mobile Menu Overlay */}
         <div className={`md:hidden fixed inset-0 bg-[#0b1220]/95 backdrop-blur-xl transition-all duration-500 flex flex-col items-center justify-center gap-8 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-          <a href="#case-studies" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Work</a>
-          <a href="#method" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Methodology</a>
-          <a href="#contact" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Contact</a>
+          {isBlogPage ? (
+            <>
+              <Link to="/" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Home</Link>
+              <Link to="/#case-studies" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Work</Link>
+              <Link to="/#contact" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Contact</Link>
+            </>
+          ) : (
+            <>
+              <a href="#case-studies" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Work</a>
+              <Link to="/blog/hallucination-architecture" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Writing</Link>
+              <a href="#contact" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Contact</a>
+            </>
+          )}
           <a 
             href={personalInfo.resumePdf} 
             target="_blank" 

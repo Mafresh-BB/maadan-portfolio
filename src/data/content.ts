@@ -2,15 +2,15 @@ import type { Project, Metric, SkillCategory } from '../types';
 
 export const personalInfo = {
   name: "ABDULYEKEEN MAADAN",
-  role: "Frontend Developer",
+  role: "Software Developer",
   headline: "I build things that work for real people.",
-  subHeadline: "Mathematics graduate turned frontend developer. I ship client projects, build AI-powered tools, and learn fastest when the stakes are real.",
-  about: "I'm a 23-year-old self-taught developer based in Lagos. I studied Mathematics at FUNAAB, did NYSC as a STEM educator, and taught myself frontend development by building for real clients — not tutorials. My most recent project is a full-stack CV optimization tool I built using AI-augmented development: I direct AI agents with specific, narrow instructions to ship working products. I'm not a computer science engineer and I don't pretend to be. I'm someone who solves real problems, ships on deadline, and closes the gap between where I am and where I'm going — one project at a time.",
+  subHeadline: "Mathematics graduate turned software developer. I ship client projects, build AI-powered tools, and learn fastest when the stakes are real.",
+  about: "Self-taught developer based in Lagos. I studied Mathematics at FUNAAB, did NYSC as a STEM educator, and taught myself frontend development by building for real clients — not tutorials. My most recent project is a full-stack CV optimization tool I built using AI-augmented development: I direct AI agents with specific, narrow instructions to ship working products. I'm not a computer science engineer and I don't pretend to be. I'm someone who solves real problems, ships on deadline, and closes the gap between where I am and where I'm going — one project at a time.",
   email: "babatundemaadan@gmail.com",
   github: "https://github.com/Mafresh-BB",
   linkedin: "https://www.linkedin.com/in/abdulyekeenmaadan",
   twitter: "https://x.com/Olamails_",
-  resumePdf: "/resume/Abdulyekeen-Maadan-Resume.pdf",
+  resumePdf: "/resume/Abdulyekeen_Maadan_Resume.pdf",
   personality: "I prefer solving real problems over building pretty placeholders."
 };
 
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     execution: "Built a two-phase Gemini AI pipeline: Phase 1 extracts verified CV facts, Phase 2 generates tailored rewrites and strategy. SSE streaming shows real results in ~15 seconds. Handles Canva CVs via multimodal PDF extraction. Click-to-edit inline CV editor with live PDF sync.",
     result: "Launched April 13, 2026. Got organic traction on day one — real users sharing it in WhatsApp groups unprompted. No marketing spend.",
     tech: ["Go", "React", "TypeScript", "Tailwind CSS", "Gemini API", "Supabase"],
-    image: "/nextrole-ng.gif",
+    image: "/nextrole-ng.mp4",
     link: "https://nextrole-ng.vercel.app",
     featured: true,
     highlights: [
@@ -59,8 +59,7 @@ export const projects: Project[] = [
     result: "Delivered a mobile-optimized landing experience with improved usability and premium aesthetics.",
     tech: ["React", "TypeScript", "TailwindCSS", "Framer Motion"],
     image: "/images/ensii.webp",
-    link: "https://ensiisafaris.ca/",
-    github: "https://github.com/Mafresh-BB"
+    link: "https://ensiisafaris.ca/"
   },
   {
     title: "Executive Persona Platform",

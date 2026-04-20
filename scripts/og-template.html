@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Inter:wght@400;500&family=Geist+Mono:wght@400&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #050505;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .card {
+      width: 1200px;
+      height: 630px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 80px;
+      background: linear-gradient(135deg, #050505 0%, #0a1628 50%, #050505 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle grid pattern */
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Accent glow */
+    .card::after {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: 100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 1;
+      max-width: 620px;
+    }
+
+    .label {
+      font-family: 'Geist Mono', 'Courier New', monospace;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #3b82f6;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .label::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: #3b82f6;
+    }
+
+    .name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: #fafafa;
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+
+    .role {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #a1a1aa;
+      letter-spacing: -0.5px;
+    }
+
+    .stack {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .stack span {
+      font-family: 'Geist Mono', 'Courier New', monospace;
+      font-size: 12px;
+      padding: 5px 12px;
+      border: 1px solid #27272a;
+      border-radius: 100px;
+      color: #a1a1aa;
+      background: rgba(17, 17, 17, 0.8);
+    }
+
+    .right {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-container {
+      position: relative;
+      width: 320px;
+      height: 320px;
+    }
+
+    .photo-ring {
+      position: absolute;
+      inset: -15px;
+      border-radius: 50%;
+      border: 2px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .photo-ring-inner {
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+
+    .photo {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(30%);
+    }
+
+    .dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #3b82f6;
+      border-radius: 50%;
+      top: 20px;
+      right: 30px;
+    }
+
+    /* Bottom URL */
+    .url {
+      position: absolute;
+      bottom: 32px;
+      left: 80px;
+      font-family: 'Geist Mono', 'Courier New', monospace;
+      font-size: 12px;
+      color: #52525b;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="left">
+      <div class="label">Portfolio</div>
+      <div class="name">Abdulyekeen<br>Maadan</div>
+      <div class="role">Software Developer</div>
+      <div class="stack">
+        <span>React</span>
+        <span>TypeScript</span>
+        <span>Go</span>
+        <span>AI-Augmented</span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="photo-container">
+        <div class="photo-ring"></div>
+        <div class="photo-ring-inner"></div>
+        <img class="photo" src="../public/images/profile.webp" alt="Abdulyekeen Maadan">
+        <div class="dot"></div>
+      </div>
+    </div>
+    <div class="url">maadan-portfolio.vercel.app</div>
+  </div>
+</body>
+</html>

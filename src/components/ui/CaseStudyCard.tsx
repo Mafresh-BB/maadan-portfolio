@@ -11,6 +11,8 @@ interface CaseStudyCardProps {
 export function CaseStudyCard({ project, index }: CaseStudyCardProps) {
   const isEven = index % 2 === 0;
   const isGif = project.image.endsWith('.gif');
+  const isVideo = project.image.endsWith('.mp4') || project.image.endsWith('.webm');
+  const isAnimated = isGif || isVideo;
 
   return (
     <motion.div
@@ -22,29 +24,40 @@ export function CaseStudyCard({ project, index }: CaseStudyCardProps) {
         project.featured ? 'md:py-28' : ''
       }`}
     >
-      {/* Image Container */}
+      {/* Image/Video Container */}
       <div className={`${project.featured ? 'md:col-span-7' : 'md:col-span-7'} relative ${isEven ? 'md:order-1' : 'md:order-2'}`}>
         <motion.a 
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
           className={`block relative overflow-hidden bg-surface rounded-sm w-full ${
-            isGif ? 'aspect-auto' : 'aspect-[4/3]'
+            isAnimated ? 'aspect-auto' : 'aspect-[4/3]'
           } ${project.featured ? 'ring-1 ring-accent/20 rounded-lg' : ''}`}
           whileHover="hover"
         >
-          <motion.img 
-            src={project.image} 
-            alt={project.title}
-            className={`w-full h-full object-cover object-center relative z-10 ${
-              isGif ? 'object-contain bg-[#0a0a0a]' : ''
-            }`}
-            variants={{
-              hover: { scale: isGif ? 1 : 1.05, transition: { duration: 0.8, ease: "easeOut" } }
-            }}
-          />
-          {/* Cinematic overlay — skip for GIFs */}
-          {!isGif && (
+          {isVideo ? (
+            <video
+              src={project.image}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-contain bg-[#0a0a0a] relative z-10"
+            />
+          ) : (
+            <motion.img 
+              src={project.image} 
+              alt={project.title}
+              className={`w-full h-full object-cover object-center relative z-10 ${
+                isGif ? 'object-contain bg-[#0a0a0a]' : ''
+              }`}
+              variants={{
+                hover: { scale: isAnimated ? 1 : 1.05, transition: { duration: 0.8, ease: "easeOut" } }
+              }}
+            />
+          )}
+          {/* Cinematic overlay — skip for animated content */}
+          {!isAnimated && (
             <motion.div 
               className="absolute inset-0 z-20 bg-background/20"
               variants={{
