@@ -4,7 +4,7 @@ Personal portfolio site for Abdulyekeen Maadan.
 
 ## Live
 
-- https://maadan-portfolio.vercel.app/
+- https://maadan.dev/
 
 ## Highlights
 
