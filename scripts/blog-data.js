@@ -1,14 +1,4 @@
-export interface PostMeta {
-  slug: string;
-  title: string;
-  subtitle: string;
-  date: string;
-  readTime: string;
-  category: string;
-  ogImage?: string;
-}
-
-export const posts: PostMeta[] = [
+export const posts = [
   {
     slug: "hallucination-architecture",
     title: "How I Stopped My CV Tool From Lying to Users",

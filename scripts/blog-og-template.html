@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Inter:wght@400;500&family=Geist+Mono:wght@400&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #050505;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .card {
+      width: 1200px;
+      height: 630px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px;
+      background: linear-gradient(135deg, #050505 0%, #0a1628 50%, #050505 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle grid pattern */
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Logo styling */
+    .logo-container {
+      position: absolute;
+      top: 48px;
+      left: 80px;
+      z-index: 2;
+    }
+
+    .logo {
+      height: 32px;
+      width: auto;
+    }
+
+    .content {
+      z-index: 1;
+      max-width: 100%;
+    }
+
+    .category {
+      font-family: 'Geist Mono', 'Courier New', monospace;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #3b82f6;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: #fafafa;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      max-width: 900px;
+    }
+
+    .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: #a1a1aa;
+      line-height: 1.4;
+      max-width: 800px;
+      margin-bottom: 24px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .meta span {
+      font-family: 'Geist Mono', 'Courier New', monospace;
+      font-size: 12px;
+      color: #71717a;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Bottom URL */
+    .url {
+      position: absolute;
+      bottom: 32px;
+      left: 80px;
+      font-family: 'Geist Mono', 'Courier New', monospace;
+      font-size: 12px;
+      color: #52525b;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo-container">
+      <img class="logo" src="file:///C:/Users/user/Documents/GitHub/My%20Portfolio/maadan-portfolio/public/logo_horizontal.png" alt="Logo">
+    </div>
+    <div class="content">
+      <div class="category" id="category">CATEGORY</div>
+      <div class="title" id="title">Blog Post Title</div>
+      <div class="subtitle" id="subtitle">Blog post subtitle goes here</div>
+      <div class="meta">
+        <span id="date">DATE</span>
+        <span id="readTime">READ TIME</span>
+      </div>
+    </div>
+    <div class="url">maadan.dev/blog/slug</div>
+  </div>
+</body>
+</html>

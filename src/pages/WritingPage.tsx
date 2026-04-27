@@ -1,11 +1,30 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight } from 'lucide-react';
 import { posts } from '../data/blog';
 
 export function WritingPage() {
   return (
-    <main className="min-h-screen pt-32 pb-24 px-6 md:px-12 bg-background">
+    <>
+      <Helmet>
+        <title>Writing | Abdulyekeen Maadan</title>
+        <meta name="description" content="Thoughts on systems, engineering, and personal growth. Essays on software development, AI, and building real products." />
+        <meta property="og:title" content="Writing | Abdulyekeen Maadan" />
+        <meta property="og:description" content="Thoughts on systems, engineering, and personal growth. Essays on software development, AI, and building real products." />
+        <meta property="og:image" content="https://maadan.dev/og/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Writing archive preview" />
+        <meta property="og:url" content="https://maadan.dev/writing" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Writing | Abdulyekeen Maadan" />
+        <meta name="twitter:description" content="Thoughts on systems, engineering, and personal growth." />
+        <meta name="twitter:image" content="https://maadan.dev/og/og-image.jpg" />
+        <meta name="twitter:image:alt" content="Writing archive preview" />
+      </Helmet>
+      <main className="min-h-screen pt-32 pb-24 px-6 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,5 +77,6 @@ export function WritingPage() {
         </div>
       </div>
     </main>
+    </>
   );
 }

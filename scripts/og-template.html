@@ -50,12 +50,26 @@
       border-radius: 50%;
     }
 
+    /* Logo styling */
+    .logo-container {
+      position: absolute;
+      top: 48px;
+      left: 80px;
+      z-index: 2;
+    }
+
+    .logo {
+      height: 32px;
+      width: auto;
+    }
+
     .left {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
       z-index: 1;
-      max-width: 620px;
+      max-width: 650px;
+      margin-top: 40px;
     }
 
     .label {
@@ -170,10 +184,13 @@
 </head>
 <body>
   <div class="card">
+    <div class="logo-container">
+      <img class="logo" src="file:///C:/Users/user/Documents/GitHub/My%20Portfolio/maadan-portfolio/public/logo_horizontal.png" alt="Logo">
+    </div>
     <div class="left">
-      <div class="label">Portfolio</div>
+      <div class="label">Software Developer</div>
       <div class="name">Abdulyekeen<br>Maadan</div>
-      <div class="role">Software Developer</div>
+      <div class="role">Building real products for real clients.</div>
       <div class="stack">
         <span>React</span>
         <span>TypeScript</span>

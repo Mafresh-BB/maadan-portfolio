@@ -1,9 +1,12 @@
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
+import { useRef } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { posts } from '../data/blog';
 import { HallucinationPost } from '../components/blog/posts/HallucinationPost';
 import { MotivationPost } from '../components/blog/posts/MotivationPost';
+import { TableOfContents } from '../components/blog/TableOfContents';
 
 const postContent: Record<string, React.ComponentType> = {
   'hallucination-architecture': HallucinationPost,
@@ -12,6 +15,7 @@ const postContent: Record<string, React.ComponentType> = {
 
 export function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
+  const contentRef = useRef<HTMLDivElement>(null!);
   const post = posts.find((p) => p.slug === slug);
   const ContentComponent = slug ? postContent[slug] : null;
 
@@ -20,7 +24,28 @@ export function BlogPost() {
   }
 
   return (
-    <article className="min-h-screen pt-32 pb-24 px-6 md:px-12">
+    <div>
+      <Helmet>
+        <title>{post.title} | Abdulyekeen Maadan</title>
+        <meta name="description" content={post.subtitle} />
+        <meta property="og:title" content={`${post.title} | Abdulyekeen Maadan`} />
+        <meta property="og:description" content={post.subtitle} />
+        <meta property="og:image" content={`https://maadan.dev${post.ogImage}`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`Preview of ${post.title}`} />
+        <meta property="og:url" content={`https://maadan.dev/blog/${post.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="article:author" content="Abdulyekeen Maadan" />
+        <meta property="article:published_time" content={new Date(post.date).toISOString()} />
+        <meta property="article:section" content={post.category} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${post.title} | Abdulyekeen Maadan`} />
+        <meta name="twitter:description" content={post.subtitle} />
+        <meta name="twitter:image" content={`https://maadan.dev${post.ogImage}`} />
+        <meta name="twitter:image:alt" content={`Preview of ${post.title}`} />
+      </Helmet>
+      <article className="min-h-screen pt-32 pb-24 px-6 md:px-12">
       <div className="max-w-3xl mx-auto">
         {/* Back link */}
         <motion.div
@@ -61,8 +86,12 @@ export function BlogPost() {
           </div>
         </motion.header>
 
+        {/* Table of Contents */}
+        <TableOfContents contentRef={contentRef} />
+
         {/* Article Body */}
         <motion.div
+          ref={contentRef}
           className="prose-custom"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,5 +120,6 @@ export function BlogPost() {
         </motion.div>
       </div>
     </article>
+    </div>
   );
 }
