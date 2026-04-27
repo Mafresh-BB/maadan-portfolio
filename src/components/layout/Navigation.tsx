@@ -19,22 +19,23 @@ export function Navigation() {
   }, []);
 
   return (
-    <motion.header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'py-4' : 'py-8'
-      }`}
+    <motion.header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-4' : 'py-8'
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className={`flex items-center justify-between rounded-none md:rounded-full px-0 md:px-6 py-0 md:py-3 transition-all duration-500 ${
-          scrolled ? 'md:bg-surface/80 md:backdrop-blur-md md:border md:border-border/50' : ''
-        }`}>
+        <div className={`flex items-center justify-between rounded-none md:rounded-full px-0 md:px-6 py-0 md:py-3 transition-all duration-500 ${scrolled ? 'md:bg-surface/80 md:backdrop-blur-md md:border md:border-border/50' : ''
+          }`}>
           {/* Logo / Name */}
-          <Link to="/" className="font-display font-semibold tracking-tight text-white flex gap-2 items-center">
-            <span className="w-2 h-2 bg-text-primary rounded-full"></span>
-            A. MAADAN
+          <Link to="/" className="flex items-center transition-opacity hover:opacity-90">
+            <img
+              src="/logo_horizontal.png"
+              alt="ABDULYEKEEN MAADAN"
+              className="h-6 md:h-8 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Links */}
@@ -48,7 +49,7 @@ export function Navigation() {
             ) : (
               <>
                 <a href="#case-studies" className="hover:text-text-primary transition-colors">Work</a>
-                <Link to="/blog/hallucination-architecture" className="hover:text-text-primary transition-colors">Writing</Link>
+                <Link to="/writing" className="hover:text-text-primary transition-colors">Writing</Link>
                 <a href="#contact" className="hover:text-text-primary transition-colors">Contact</a>
               </>
             )}
@@ -56,9 +57,9 @@ export function Navigation() {
 
           {/* Right Action */}
           <div className="hidden md:block">
-            <a 
-              href={personalInfo.resumePdf} 
-              target="_blank" 
+            <a
+              href={personalInfo.resumePdf}
+              target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-xs uppercase tracking-widest text-background bg-text-primary px-4 py-2 rounded-full hover:bg-white/90 transition-colors bg-white font-medium"
             >
@@ -67,8 +68,8 @@ export function Navigation() {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
-            className="md:hidden flex flex-col gap-1.5 p-2 z-50 relative" 
+          <button
+            className="md:hidden flex flex-col gap-1.5 p-2 z-50 relative"
             aria-label="Menu"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -89,13 +90,13 @@ export function Navigation() {
           ) : (
             <>
               <a href="#case-studies" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Work</a>
-              <Link to="/blog/hallucination-architecture" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Writing</Link>
+              <Link to="/writing" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Writing</Link>
               <a href="#contact" onClick={() => setIsOpen(false)} className="font-display text-3xl text-white hover:text-accent transition-colors">Contact</a>
             </>
           )}
-          <a 
-            href={personalInfo.resumePdf} 
-            target="_blank" 
+          <a
+            href={personalInfo.resumePdf}
+            target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
             className="font-mono text-sm uppercase tracking-widest text-[#0b1220] bg-white px-6 py-3 rounded-full mt-4"

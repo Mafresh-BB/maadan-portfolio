@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
 import { Navigation } from './Navigation';
+import { Footer } from './Footer';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -25,13 +26,14 @@ export function Layout({ children }: LayoutProps) {
       lenis.destroy();
     };
   }, []);
-
+  
   return (
     <div className="min-h-screen bg-background text-text-primary selection:bg-accent selection:text-white">
       <Navigation />
       <main className="relative z-10 w-full overflow-hidden">
         {children}
       </main>
+      <Footer />
     </div>
   );
 }

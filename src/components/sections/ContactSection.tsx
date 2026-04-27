@@ -229,11 +229,6 @@ export function ContactSection() {
             </form>
           </motion.div>
         </div>
-
-        <div className="mt-32 pt-8 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-4 font-mono text-[10px] text-text-secondary/50 uppercase tracking-[0.2em]">
-          <span>© {new Date().getFullYear()} ABDULYEKEEN MAADAN.</span>
-          <span>Engineered in Lagos, Nigeria.</span>
-        </div>
       </div>
     </section>
   );
