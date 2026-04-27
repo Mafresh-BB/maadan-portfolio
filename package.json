@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run optimize-images && tsc -b && vite build",
+    "build": "npm run optimize-images && tsc -b && vite build && npm run generate-blog-html",
     "optimize-images": "node scripts/convert-to-webp.mjs",
+    "generate-blog-html": "node scripts/generate-blog-html.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
