@@ -13,9 +13,10 @@ export function HomePage() {
       <Helmet>
         <title>Abdulyekeen Maadan | Software Developer — Lagos, Nigeria</title>
         <meta name="description" content="Software developer based in Lagos. I build real products for real clients using React, TypeScript, Go, and AI-augmented workflows. Currently shipping NextRole NG — a full-stack CV optimization tool for the Nigerian job market." />
+        <meta property="og:site_name" content="Abdulyekeen Maadan" />
         <meta property="og:title" content="Abdulyekeen Maadan — Software Developer" />
         <meta property="og:description" content="Software developer based in Lagos. Building real products with React, TypeScript, Go, and AI-augmented workflows." />
-        <meta property="og:image" content="https://maadan.dev/og/og-image.jpg" />
+        <meta property="og:image" content="https://maadan.dev/og/og-image.jpg?v=2" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Portfolio preview of Abdulyekeen Maadan" />
@@ -26,7 +27,7 @@ export function HomePage() {
         <meta name="twitter:creator" content="@Olamails_" />
         <meta name="twitter:title" content="Abdulyekeen Maadan | Software Developer" />
         <meta name="twitter:description" content="Software developer based in Lagos. Building real products with React, TypeScript, Go, and AI-augmented workflows." />
-        <meta name="twitter:image" content="https://maadan.dev/og/og-image.jpg" />
+        <meta name="twitter:image" content="https://maadan.dev/og/og-image.jpg?v=2" />
         <meta name="twitter:image:alt" content="Portfolio preview of Abdulyekeen Maadan" />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -35,7 +36,7 @@ export function HomePage() {
             "name": "Abdulyekeen Maadan",
             "jobTitle": "Software Developer",
             "url": "https://maadan.dev",
-            "image": "https://maadan.dev/images/profile.webp",
+            "image": "https://maadan.dev/images/profile.webp?v=2",
             "sameAs": [
               "https://www.linkedin.com/in/abdulyekeenmaadan",
               "https://github.com/mafresh-bb"
@@ -85,15 +86,11 @@ export function HomePage() {
         </script>
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "url": "https://maadan.dev",
-            "name": "Maadan Portfolio",
-            "description": "Portfolio and blog of software developer Abdulyekeen Maadan.",
-            "publisher": {
-              "@type": "Person",
-              "name": "Abdulyekeen Maadan"
-            }
+            "@context" : "https://schema.org",
+            "@type" : "WebSite",
+            "name" : "Abdulyekeen Maadan",
+            "alternateName" : ["Maadan", "Yekeen"],
+            "url" : "https://maadan.dev/"
           })}
         </script>
       </Helmet>

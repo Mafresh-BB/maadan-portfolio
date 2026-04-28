@@ -61,7 +61,7 @@ export function HeroSection() {
         >
           <div className="absolute inset-0 bg-gradient-to-t from-[#0b1220] via-transparent to-transparent z-10 h-full w-full" />
           <img 
-            src="/images/profile.webp" 
+            src="/images/profile.webp?v=2" 
             alt="Abdulyekeen Maadan Portrait" 
             className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
           />
