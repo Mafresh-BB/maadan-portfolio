@@ -138,7 +138,7 @@ export function HeroSection({ visible = true }: HeroSectionProps) {
             color: 'rgba(59,130,246,0.85)',
             textTransform: 'uppercase',
           }}>
-            Maadan.DEV
+            Maadan Dev
           </span>
         </motion.div>
 
