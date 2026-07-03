@@ -98,9 +98,9 @@ export default function RootLayout({
                 {
                   "@type": "WebSite",
                   "@id": "https://www.maadan.dev/#website",
-                  "url": "https://www.maadan.dev/",
+                  "url": "https://www.maadan.dev",
                   "name": "Maadan Dev",
-                  "alternateName": ["Abdulyekeen Maadan", "Maadan", "Yekeen", "maadan.dev", "www.maadan.dev"],
+                  "alternateName": ["Abdulyekeen Maadan", "Maadan", "Yekeen"],
                   "publisher": {
                     "@id": "https://www.maadan.dev/#person"
                   }
@@ -110,7 +110,7 @@ export default function RootLayout({
                   "@id": "https://www.maadan.dev/#person",
                   "name": "Abdulyekeen Maadan",
                   "jobTitle": "Software Developer",
-                  "url": "https://www.maadan.dev/",
+                  "url": "https://www.maadan.dev",
                   "image": "https://maadan.dev/images/profile.webp?v=2",
                   "sameAs": [
                     "https://www.linkedin.com/in/abdulyekeenmaadan",
