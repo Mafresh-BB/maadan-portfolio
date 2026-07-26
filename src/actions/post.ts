@@ -1,12 +1,19 @@
 "use server";
 
 import { Redis } from '@upstash/redis';
+import { posts } from '../data/blog';
 
 // Initialize Upstash Redis client.
 // It will automatically use UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN from environment variables.
 const redis = Redis.fromEnv();
 
+const validSlugs = new Set(posts.map((p) => p.slug));
+
 export async function getPostStats(slug: string) {
+  if (!validSlugs.has(slug)) {
+    return { views: 0, likes: 0 };
+  }
+
   try {
     // Fetch views and likes in parallel
     const [views, likes] = await Promise.all([
@@ -25,6 +32,10 @@ export async function getPostStats(slug: string) {
 }
 
 export async function incrementView(slug: string) {
+  if (!validSlugs.has(slug)) {
+    return { views: 0 };
+  }
+
   try {
     const views = await redis.incr(`post:views:${slug}`);
     return { views };
@@ -35,6 +46,10 @@ export async function incrementView(slug: string) {
 }
 
 export async function incrementLike(slug: string, amount: number = 1) {
+  if (!validSlugs.has(slug)) {
+    return { likes: 0 };
+  }
+
   try {
     // Safe cap to prevent malicious flooding of likes in a single request
     const safeAmount = Math.min(Math.max(amount, 1), 10);

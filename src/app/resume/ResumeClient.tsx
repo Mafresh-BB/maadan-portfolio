@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { personalInfo, projects, skillCategories } from '../../data/content';
 
 // Unified structured data for experience, education, certifications, and additional notes
@@ -75,6 +76,7 @@ export function ResumeClient() {
   // 2. Refs
   const terminalEndRef = useRef<HTMLDivElement>(null);
   const terminalInputRef = useRef<HTMLInputElement>(null);
+  const sidebarRef = useRef<HTMLElement>(null);
 
   // 3. Effects
   // Scroll terminal to bottom
@@ -96,6 +98,31 @@ export function ResumeClient() {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Scroll isolation: lock body scroll when cursor is over the fixed sidebar
+  useEffect(() => {
+    const sidebar = sidebarRef.current;
+    if (!sidebar) return;
+
+    const handleMouseEnter = () => {
+      if (window.matchMedia('(min-width: 1024px)').matches) {
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    const handleMouseLeave = () => {
+      document.body.style.overflow = '';
+    };
+
+    sidebar.addEventListener('mouseenter', handleMouseEnter);
+    sidebar.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      sidebar.removeEventListener('mouseenter', handleMouseEnter);
+      sidebar.removeEventListener('mouseleave', handleMouseLeave);
+      document.body.style.overflow = '';
+    };
   }, []);
 
   // Focus terminal input when opened
@@ -186,7 +213,7 @@ export function ResumeClient() {
         case 'help':
           setTerminalOutput(prev => [...prev, {
             type: 'info',
-            text: 'Available Commands:\n  about       - Brief developer overview\n  projects    - Showcase product launches & stack\n  experience  - Software contractor vertically shipped\n  skills      - Tech stack categorized lists\n  education   - Fellowship & B.Sc Mathematics\n  download    - Download PDF resume copy\n  clear       - Clean terminal screen\n  close       - Hide terminal drawer'
+            text: 'Available Commands:\n  about       - Brief developer overview\n  projects    - Showcase product launches & stack\n  experience  - Software contractor vertically shipped\n  skills      - Tech stack categorized lists\n  education   - Fellowship & B.Sc Mathematics\n  download    - Print/Save PDF resume copy\n  clear       - Clean terminal screen\n  close       - Hide terminal drawer'
           }]);
           break;
 
@@ -317,94 +344,99 @@ export function ResumeClient() {
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-12 lg:gap-24 relative">
-        {/* Sidebar Left Pane */}
-        <aside className="lg:sticky lg:top-32 h-fit flex flex-col gap-10">
-          {/* Profile Photo */}
-          <div className="relative w-36 h-36">
-            <img 
-              src="/images/profile.webp" 
-              alt="Abdulyekeen Maadan" 
-              className="w-full h-full rounded-[28px] object-cover border-2 border-border shadow-2xl transition-all duration-300 hover:border-accent hover:scale-[1.02] hover:shadow-accent/15" 
-            />
-            <div 
-              className="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-[3.5px] border-[#050505] shadow-[0_0_10px_rgba(16,185,129,0.6)] animate-pulse" 
-              title="Available for Contracts & Remote Roles" 
-            />
-          </div>
+        {/* Sidebar Left Pane — outer div is a grid spacer, inner div is fixed on desktop */}
+        <div>
+          <aside ref={sidebarRef} className="lg:fixed lg:top-28 lg:bottom-8 lg:w-[340px] lg:overflow-y-auto flex flex-col gap-6">
+            {/* Profile Photo */}
+            <div className="relative w-36 h-36">
+              <Image 
+                src="/images/profile.webp" 
+                alt="Abdulyekeen Maadan" 
+                width={144}
+                height={144}
+                priority
+                className="w-full h-full rounded-[28px] object-cover border-2 border-border shadow-2xl transition-all duration-300 hover:border-accent hover:scale-[1.02] hover:shadow-accent/15" 
+              />
+              <div 
+                className="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-[3.5px] border-[#050505] shadow-[0_0_10px_rgba(16,185,129,0.6)] animate-pulse" 
+                title="Available for Contracts & Remote Roles" 
+              />
+            </div>
 
-          {/* Download Button */}
-          <div>
-            <a 
-              href="/resume/Abdulyekeen_Maadan_Resume.pdf" 
-              className="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-text-primary text-[10px] font-semibold tracking-wider uppercase hover:bg-text-primary hover:text-[#050505] hover:border-text-primary hover:-translate-y-0.5 hover:shadow-white/10 transition-all duration-300"
-              download="Abdulyekeen_Maadan_Resume.pdf"
-            >
-              <svg className="w-3.5 h-3.5 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-              </svg>
-              <span>Download PDF Resume</span>
-            </a>
-          </div>
+            {/* Download Button */}
+            <div className="no-print">
+              <a 
+                href="/resume/Abdulyekeen_Maadan_Resume.pdf" 
+                className="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-text-primary text-[10px] font-semibold tracking-wider uppercase hover:bg-text-primary hover:text-[#050505] hover:border-text-primary hover:-translate-y-0.5 hover:shadow-white/10 transition-all duration-300"
+                download="Abdulyekeen_Maadan_Resume.pdf"
+              >
+                <svg className="w-3.5 h-3.5 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                <span>Download PDF Resume</span>
+              </a>
+            </div>
 
-          {/* Tagline Info */}
-          <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-text-secondary/50">
-            &middot; Resume &middot; Software Developer &middot; Lagos, Nigeria
-          </div>
+            {/* Tagline Info */}
+            <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-text-secondary/50">
+              &middot; Resume &middot; Software Developer &middot; Lagos, Nigeria
+            </div>
 
-          {/* Header Name */}
-          <div className="flex flex-col gap-3">
-            <h1 className="font-display font-bold text-[2.75rem] leading-[1.1] tracking-tighter uppercase flex flex-col">
-              <span className="text-text-primary">Abdulyekeen</span>
-              <span className="bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent">Maadan</span>
-            </h1>
-            <p className="text-xs text-text-secondary leading-relaxed font-light">
-              Next.js &middot; React &middot; TypeScript &middot; Go &middot; AI-Augmented Development
-            </p>
-          </div>
+            {/* Header Name */}
+            <div className="flex flex-col gap-3">
+              <h1 className="font-display font-bold text-[2.75rem] leading-[1.1] tracking-tighter uppercase flex flex-col">
+                <span className="text-text-primary">Abdulyekeen</span>
+                <span className="bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent">Maadan</span>
+              </h1>
+              <p className="text-xs text-text-secondary leading-relaxed font-light">
+                Next.js &middot; React &middot; TypeScript &middot; Go &middot; AI-Augmented Development
+              </p>
+            </div>
 
-          {/* Contacts info card */}
-          <section className="bg-surface/30 border border-border/80 rounded-2xl p-6 backdrop-blur-md flex flex-col gap-4 shadow-xl hover:border-border transition-colors">
-            {[
-              { label: 'Email', value: personalInfo.email, link: `mailto:${personalInfo.email}` },
-              { label: 'Website', value: 'maadan.dev', link: 'https://maadan.dev' },
-              { label: 'GitHub', value: 'github.com/maadan-dev', link: 'https://github.com/maadan-dev' },
-              { label: 'LinkedIn', value: 'linkedin.com/in/abdulyekeenmaadan', link: 'https://linkedin.com/in/abdulyekeenmaadan' }
-            ].map(contact => (
-              <div key={contact.label} className="flex flex-col gap-1">
-                <span className="font-mono text-[9px] uppercase tracking-wider text-text-secondary/40">{contact.label}</span>
-                <div className="flex items-center justify-between gap-4">
-                  <a href={contact.link} target={contact.label !== 'Email' ? "_blank" : undefined} rel="noopener noreferrer" className="text-[13px] font-medium text-text-primary hover:text-accent hover:underline hover:underline-offset-4 transition-all overflow-hidden text-overflow-ellipsis whitespace-nowrap">
-                    {contact.value}
-                  </a>
-                  <button 
-                    onClick={(e) => handleCopy(e, contact.value)} 
-                    className="p-1.5 rounded-lg border border-transparent text-text-secondary/40 hover:text-text-primary hover:bg-white/5 hover:border-border transition-all"
-                    title={`Copy ${contact.label}`}
-                  >
-                    {copiedEmail && toastMsg.includes(contact.value) ? (
-                      <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                      </svg>
-                    ) : (
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 6.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0 0 15 2.25h-1.5a2.251 2.251 0 0 0-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664" />
-                      </svg>
-                    )}
-                  </button>
+            {/* Contacts info card */}
+            <section className="bg-surface/30 border border-border/80 rounded-2xl p-6 backdrop-blur-md flex flex-col gap-4 shadow-xl hover:border-border transition-colors">
+              {[
+                { label: 'Email', value: personalInfo.email, link: `mailto:${personalInfo.email}` },
+                { label: 'Website', value: 'maadan.dev', link: 'https://maadan.dev' },
+                { label: 'GitHub', value: 'github.com/maadan-dev', link: 'https://github.com/maadan-dev' },
+                { label: 'LinkedIn', value: 'linkedin.com/in/abdulyekeenmaadan', link: 'https://linkedin.com/in/abdulyekeenmaadan' }
+              ].map(contact => (
+                <div key={contact.label} className="flex flex-col gap-1">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-text-secondary/40">{contact.label}</span>
+                  <div className="flex items-center justify-between gap-4">
+                    <a href={contact.link} target={contact.label !== 'Email' ? "_blank" : undefined} rel="noopener noreferrer" className="text-[13px] font-medium text-text-primary hover:text-accent hover:underline hover:underline-offset-4 transition-all overflow-hidden text-overflow-ellipsis whitespace-nowrap">
+                      {contact.value}
+                    </a>
+                    <button 
+                      onClick={(e) => handleCopy(e, contact.value)} 
+                      className="p-1.5 rounded-lg border border-transparent text-text-secondary/40 hover:text-text-primary hover:bg-white/5 hover:border-border transition-all"
+                      title={`Copy ${contact.label}`}
+                    >
+                      {copiedEmail && toastMsg.includes(contact.value) ? (
+                        <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+                      ) : (
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 6.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0 0 15 2.25h-1.5a2.251 2.251 0 0 0-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664" />
+                        </svg>
+                      )}
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </section>
+              ))}
+            </section>
 
-          <p className="hidden lg:block text-[11px] text-text-secondary/30 italic">
-            Tips: Click tags to highlight matching skills, or press ` to toggle the CLI.
-          </p>
-        </aside>
+            <p className="hidden lg:block text-[11px] text-text-secondary/30 italic">
+              Tips: Click tags to highlight matching skills, or press ` to toggle the CLI.
+            </p>
+          </aside>
+        </div>
 
         {/* Right Pane Scroll Area */}
         <main className="flex flex-col gap-12">
           {/* CLI Terminal trigger and window */}
-          <section className="flex flex-col gap-4 w-full">
+          <section className="flex flex-col gap-4 w-full no-print">
             <div className="flex">
               <button 
                 onClick={toggleTerminal}
@@ -472,7 +504,7 @@ export function ResumeClient() {
           </section>
 
           {/* Quick Filters Toolbar */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-surface/30 border border-border/80 p-3 px-5 rounded-2xl backdrop-blur-md">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-surface/30 border border-border/80 p-3 px-5 rounded-2xl backdrop-blur-md no-print">
             <span className="font-mono text-[10px] uppercase text-text-secondary/40 tracking-wider">Filter View:</span>
             <div className="flex gap-2 flex-wrap">
               {(['all', 'ai', 'go', 'frontend'] as const).map(filter => (
@@ -642,8 +674,8 @@ export function ResumeClient() {
               {skillCategories.map(cat => {
                 // Determine if category belongs to active category filter
                 const isCategoryActive = activeFilter === 'all' || 
-                  (activeFilter === 'frontend' && cat.title.includes('Frameworks') || cat.title.includes('Core')) ||
-                  (activeFilter === 'go' && cat.title.includes('Backend') || cat.title.includes('Core')) ||
+                  (activeFilter === 'frontend' && (cat.title.includes('Frameworks') || cat.title.includes('Core'))) ||
+                  (activeFilter === 'go' && (cat.title.includes('Backend') || cat.title.includes('Core'))) ||
                   (activeFilter === 'ai' && cat.title.includes('AI'));
                 
                 return (

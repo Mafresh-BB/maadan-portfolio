@@ -17,8 +17,23 @@ function useIsTouch() {
   return isTouch;
 }
 
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  });
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+  return reduced;
+}
+
 export default function CustomCursor() {
   const isTouch = useIsTouch();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -28,7 +43,7 @@ export default function CustomCursor() {
   const ringY = useSpring(mouseY, { damping: 28, stiffness: 180, mass: 0.8 });
 
   useEffect(() => {
-    if (isTouch) return;
+    if (isTouch || prefersReducedMotion) return;
     const SELECTORS = 'a, button, [role="button"], [data-hover], input, textarea, select, label';
     const onMove  = (e: MouseEvent) => { mouseX.set(e.clientX); mouseY.set(e.clientY); setIsVisible(true); };
     const onLeave = () => setIsVisible(false);
@@ -48,9 +63,9 @@ export default function CustomCursor() {
       window.removeEventListener('mouseover',  onOver);
       window.removeEventListener('mouseout',   onOut);
     };
-  }, [isTouch, mouseX, mouseY]);
+  }, [isTouch, prefersReducedMotion, mouseX, mouseY]);
 
-  if (isTouch) return null;
+  if (isTouch || prefersReducedMotion) return null;
 
   return (
     <>

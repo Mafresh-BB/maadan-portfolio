@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { personalInfo } from '../../data/content';
 
@@ -57,12 +58,16 @@ export function Navigation() {
       >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80" data-hover>
-          <img
+          <Image
             src="/logo_horizontal.png"
             alt="ABDULYEKEEN MAADAN"
+            width={180}
+            height={26}
+            priority
             style={{ height: scrolled ? 22 : 26, width: 'auto', objectFit: 'contain', transition: 'height 0.3s ease' }}
           />
         </Link>
+
 
         {/* Desktop Links */}
         <nav className="hidden md:flex items-center gap-8">

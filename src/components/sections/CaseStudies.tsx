@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { projects, testimonials } from '../../data/content';
 import { ArrowUpRight } from 'lucide-react';
@@ -151,10 +152,12 @@ export function CaseStudies() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
                     />
                   )}
                   <div className="absolute top-3 left-3 z-20">
@@ -259,10 +262,12 @@ export function CaseStudies() {
             >
               {/* Media preview - simplified */}
               <div className="relative overflow-hidden w-full aspect-[16/9] bg-zinc-900/30 rounded-xl border border-zinc-900 group-hover:border-zinc-800 transition-colors">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 300px"
+                  className="object-cover group-hover:scale-[1.01] transition-transform duration-500"
                 />
               </div>
 

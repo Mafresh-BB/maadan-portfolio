@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { posts } from '../../../data/blog';
 import { BlogPost } from '../../../views/BlogPost';
 
@@ -16,7 +16,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
   const { slug } = await params;
   const post = posts.find((p) => p.slug === slug);
-  if (!post) return {};
+  if (!post) {
+    notFound();
+  }
 
   const url = `https://www.maadan.dev/blog/${post.slug}`;
 
@@ -56,7 +58,7 @@ export default async function BlogPostRoute({ params }: RouteParams) {
   const { slug } = await params;
   const post = posts.find((p) => p.slug === slug);
   if (!post) {
-    redirect('/writing');
+    notFound();
   }
 
   return <BlogPost slug={slug} />;

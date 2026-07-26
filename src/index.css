@@ -1,15 +1,5 @@
 @import "tailwindcss";
 
-@import "@fontsource/inter/400.css";
-@import "@fontsource/inter/500.css";
-@import "@fontsource/inter/600.css";
-@import "@fontsource/inter/700.css";
-@import "@fontsource/outfit/500.css";
-@import "@fontsource/outfit/600.css";
-@import "@fontsource/outfit/700.css";
-@import "@fontsource/geist-mono/400.css";
-@import "@fontsource/geist-mono/500.css";
-
 @theme {
   --color-background: #050505;
   --color-surface: #111111;
@@ -20,9 +10,12 @@
   --color-accent: #3b82f6;
   --color-accent-glow: rgba(59, 130, 246, 0.15);
 
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Outfit", system-ui, sans-serif;
-  --font-mono: "Geist Mono", monospace;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-display: var(--font-display), system-ui, sans-serif;
+  --font-mono: var(--font-mono), monospace;
+  --font-bebas: var(--font-bebas-neue), sans-serif;
+  --font-barlow: var(--font-barlow), sans-serif;
+  --font-barlow-condensed: var(--font-barlow-condensed), sans-serif;
 
   --animate-fade-in: fade-in 1s ease-in-out;
   --animate-slide-up: slide-up 1s cubic-bezier(0.16, 1, 0.3, 1);
@@ -140,4 +133,100 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-smooth iframe {
   pointer-events: none;
+}
+
+/* Print Media Styles for clean PDF resume generation */
+@media print {
+  /* Hide headers, footers, terminal buttons, cursors, etc. */
+  header,
+  footer,
+  nav,
+  .no-print,
+  #developer-terminal,
+  [data-custom-cursor] {
+    display: none !important;
+  }
+
+  /* Force print background as light and text as dark */
+  html,
+  body {
+    background: #ffffff !important;
+    color: #18181b !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Reset layout structure on resume page */
+  main,
+  section,
+  div,
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  a {
+    color: #18181b !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    border-color: #e4e4e7 !important;
+  }
+
+  /* Make sure link underlines are clean */
+  a {
+    text-decoration: underline !important;
+  }
+
+  /* Convert sidebar grid layout to standard print flow */
+  .grid-cols-\[340px_1fr\],
+  .grid {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Sticky sidebars are static */
+  aside.lg\:sticky {
+    position: static !important;
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  /* Prevent page breaks inside experiences or certifications */
+  .experience-item,
+  section,
+  li,
+  div {
+    page-break-inside: avoid;
+  }
+
+  /* Specific typography fixes for printing */
+  h1 {
+    font-size: 24pt !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  h2 {
+    font-size: 14pt !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+    border-bottom: 1px solid #d4d4d8 !important;
+    padding-bottom: 0.25rem !important;
+  }
+
+  h3 {
+    font-size: 12pt !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  /* Hide custom dots/lights in printing */
+  .bg-emerald-500 {
+    display: none !important;
+  }
 }

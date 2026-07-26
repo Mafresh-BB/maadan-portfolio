@@ -1,5 +1,6 @@
 import { google } from '@ai-sdk/google';
 import { streamText, convertToModelMessages } from 'ai';
+import { Redis } from '@upstash/redis';
 import { SYSTEM_PROMPT } from '../../../data/ai-prompt';
 
 export const runtime = 'edge';
@@ -7,8 +8,36 @@ export const runtime = 'edge';
 const MAX_MESSAGES = 20;
 const MAX_MESSAGE_LENGTH = 2000;
 
+// Initialize Upstash Redis client if environment variables are set
+let redis: Redis | null = null;
+try {
+  redis = Redis.fromEnv();
+} catch (e) {
+  console.warn('Upstash Redis environment variables not found or client initialization failed. Rate limiting is disabled.');
+}
+
 export async function POST(req: Request) {
   try {
+    // Rate Limiting
+    if (redis) {
+      const ip = (req.headers.get('x-forwarded-for') || '').split(',')[0].trim() || '127.0.0.1';
+      const limitKey = `ratelimit:chat:${ip}`;
+      try {
+        const count = await redis.incr(limitKey);
+        if (count === 1) {
+          await redis.expire(limitKey, 60); // 60-second sliding window
+        }
+        if (count > 10) {
+          return new Response(JSON.stringify({ error: 'Too many requests. Please try again in a minute.' }), {
+            status: 429,
+            headers: { 'Content-Type': 'application/json' },
+          });
+        }
+      } catch (redisError) {
+        console.error('Rate limiting Redis error:', redisError);
+      }
+    }
+
     const body = await req.json();
     const { messages } = body;
 

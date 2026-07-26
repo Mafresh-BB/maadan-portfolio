@@ -2,17 +2,47 @@ import type { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Layout } from '../components/layout/Layout';
-import { DeveloperTerminal } from '../components/ui/DeveloperTerminal';
-
-// Import global fonts
-import '@fontsource/bebas-neue/400.css';
-import '@fontsource/barlow-condensed/400.css';
-import '@fontsource/barlow-condensed/500.css';
-import '@fontsource/barlow-condensed/700.css';
-import '@fontsource/barlow-condensed/900.css';
-import '@fontsource/barlow/300.css';
-import '@fontsource/barlow/400.css';
+import { Inter, Outfit, Geist_Mono, Bebas_Neue, Barlow, Barlow_Condensed } from 'next/font/google';
 import '../index.css';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+});
+
+const bebasNeue = Bebas_Neue({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-bebas-neue',
+  display: 'swap',
+});
+
+const barlow = Barlow({
+  weight: ['300', '400'],
+  subsets: ['latin'],
+  variable: '--font-barlow',
+  display: 'swap',
+});
+
+const barlowCondensed = Barlow_Condensed({
+  weight: ['400', '500', '700', '900'],
+  subsets: ['latin'],
+  variable: '--font-barlow-condensed',
+  display: 'swap',
+});
 
 export const viewport: Viewport = {
   themeColor: '#050505',
@@ -87,7 +117,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${outfit.variable} ${geistMono.variable} ${bebasNeue.variable} ${barlow.variable} ${barlowCondensed.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -109,9 +139,16 @@ export default function RootLayout({
                   "@type": "Person",
                   "@id": "https://www.maadan.dev/#person",
                   "name": "Abdulyekeen Maadan",
+                  "description": "Full-stack developer based in Lagos, Nigeria. Builds production AI tools and web applications using Next.js, React, TypeScript, and Go. Open for remote freelance and part-time engagements.",
                   "jobTitle": "Software Developer",
                   "url": "https://www.maadan.dev",
                   "image": "https://maadan.dev/images/profile.webp?v=2",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Lagos",
+                    "addressCountry": "NG"
+                  },
+                  "alternateName": ["Maadan Dev", "Maadan", "Yekeen"],
                   "sameAs": [
                     "https://www.linkedin.com/in/abdulyekeenmaadan",
                     "https://github.com/maadan-dev",
@@ -155,6 +192,18 @@ export default function RootLayout({
                   "sameAs": [
                     "https://github.com/maadan-dev/nextrole-ng-frontend"
                   ]
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  "@id": "https://tools.maadan.dev/#app",
+                  "name": "Maadan Dev Tools",
+                  "url": "https://tools.maadan.dev",
+                  "description": "Client-facing document automation platform. Legal deed and agreement generator built with Next.js and @react-pdf/renderer.",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web",
+                  "author": {
+                    "@id": "https://www.maadan.dev/#person"
+                  }
                 }
               ]
             })
@@ -165,7 +214,6 @@ export default function RootLayout({
         <Layout>
           {children}
         </Layout>
-        <DeveloperTerminal />
         <Analytics />
         <SpeedInsights />
       </body>

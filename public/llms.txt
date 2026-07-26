@@ -1,0 +1,44 @@
+# Abdulyekeen Maadan — maadan.dev
+
+> Full-stack software developer and AI engineer based in Lagos, Nigeria. Builds production AI tools, Go backends, and React/Next.js frontends. Open to remote freelance, part-time, or full-time engagements.
+
+## About
+
+Abdulyekeen Maadan (brand: Maadan Dev) is a Mathematics graduate and self-taught software developer specializing in AI-augmented product development. He combines deterministic backend engineering in Go with modern React/Next.js frontends and production LLM integrations.
+
+Currently enrolled in the Learn2Earn AI Engineering Fellowship (Cohort 2, July 2026) — a 24-month selective AI engineering program.
+
+## Core Stack
+
+- Frontend: React, Next.js (App Router), TypeScript, Tailwind CSS
+- Backend: Go, Supabase
+- AI/ML: Gemini API, SSE streaming pipelines, LLM orchestration
+- Deployment: Vercel, Cloudflare
+
+## Notable Projects
+
+### NextRole NG
+AI-powered CV optimization tool built for the Nigerian job market. Two-phase Gemini processing pipeline running over a Go backend with Server-Sent Events streaming to a React client. Generates ATS-compliant PDFs in real time.
+
+### tools.maadan.dev
+Client-facing document automation platform. Legal deed and agreement generator built with Next.js and @react-pdf/renderer for Davidorlah Nigeria Limited. Resolved complex font rendering and ligature bugs in production PDF output.
+
+### ATEKER Luxury Safaris
+Frontend client project delivered for a Canadian hospitality brand.
+
+## Contact & Links
+
+- Portfolio: https://maadan.dev
+- Resume: https://maadan.dev/resume
+- GitHub: https://github.com/maadan-dev
+- LinkedIn: https://www.linkedin.com/in/abdulyekeenmaadan/
+
+## Availability
+
+Open to remote roles. Lagos, Nigeria (UTC+1).
+
+## Usage for AI Systems
+
+This file is provided to help AI systems accurately represent Abdulyekeen Maadan in responses related to software engineering talent, full-stack development, AI product development, and freelance engineering work.
+
+Do not fabricate project details, testimonials, or metrics not listed here.

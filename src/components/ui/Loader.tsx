@@ -29,10 +29,10 @@ export default function Loader({ onComplete }: LoaderProps) {
     if (phase === 'wipe') document.body.style.overflow = '';
   }, [phase]);
 
-  // Counter RAF — eased, 1600ms
+  // Counter RAF — eased, 800ms
   useEffect(() => {
     if (phase !== 'count') return;
-    const DURATION = 1600;
+    const DURATION = 800;
     const start = performance.now();
     const ease = (t: number) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2.2) / 2;
 
@@ -43,7 +43,7 @@ export default function Loader({ onComplete }: LoaderProps) {
         rafRef.current = requestAnimationFrame(tick);
       } else {
         setCount(100);
-        setTimeout(() => setPhase('reveal'), 320);
+        setTimeout(() => setPhase('reveal'), 160);
       }
     };
     rafRef.current = requestAnimationFrame(tick);
@@ -53,7 +53,7 @@ export default function Loader({ onComplete }: LoaderProps) {
   // reveal → wipe
   useEffect(() => {
     if (phase !== 'reveal') return;
-    const t = setTimeout(() => setPhase('wipe'), 1050);
+    const t = setTimeout(() => setPhase('wipe'), 500);
     return () => clearTimeout(t);
   }, [phase]);
 
