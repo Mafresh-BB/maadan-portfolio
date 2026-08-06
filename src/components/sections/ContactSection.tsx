@@ -83,13 +83,31 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formRef.current) return;
+    if (!formData.name || !formData.email || !formData.message) return;
     setStatus('sending');
     try {
-      await emailjs.sendForm(
+      const templateParams = {
+        from_name: formData.name,
+        name: formData.name,
+        user_name: formData.name,
+        from_email: formData.email,
+        email: formData.email,
+        user_email: formData.email,
+        reply_to: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        sent_at: new Date().toLocaleString('en-US', {
+          dateStyle: 'medium',
+          timeStyle: 'short',
+        }),
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        date: new Date().toLocaleDateString(),
+      };
+
+      await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
-        formRef.current,
+        templateParams,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
       );
       setStatus('success');
