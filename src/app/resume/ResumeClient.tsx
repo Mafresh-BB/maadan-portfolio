@@ -24,7 +24,7 @@ const educationData = [
   {
     role: "AI Engineering Fellowship",
     company: "Learn2Earn · Cohort 2",
-    duration: "June 2026 (incoming)",
+    duration: "July 2026 – Present",
     tags: ["learn2earn"],
     category: "ai go",
     description: "Tuition-free, 24-month systems and AI software engineering program founded by Iyinoluwa Aboyeji (Andela, Flutterwave). Selected through a highly competitive assessment process from ~4,000 Lagos applicants. Located in Yaba, Lagos."
@@ -221,7 +221,7 @@ export function ResumeClient() {
         case 'summary':
           setTerminalOutput(prev => [...prev, {
             type: 'success',
-            text: 'Abdulyekeen Maadan · Software Developer\nLagos-based developer with a Mathematics background and 2+ years delivering production client applications across the full stack (Next.js, React, TypeScript, Go).\nIncoming Fellow at the Learn2Earn AI Fellowship (Cohort 2), selected from ~4,000 applicants.'
+            text: 'Abdulyekeen Maadan · Software Developer\nLagos-based developer with a Mathematics background and 2+ years delivering production client applications across the full stack (Next.js, React, TypeScript, Go).\nAI Fellow at the Learn2Earn AI Fellowship (Cohort 2), selected from ~4,000 applicants.'
           }]);
           break;
 
@@ -249,7 +249,7 @@ export function ResumeClient() {
         case 'education':
           setTerminalOutput(prev => [...prev, {
             type: 'info',
-            text: '• AI Engineering Fellowship | Learn2Earn (Cohort 2, Incoming)\n• 01-edu Piscine | Learn2Earn (March 2026 boot camp in Go & Unix shell)\n• B.Sc. Mathematics | FUNAAB (2019 - 2024)'
+            text: '• AI Engineering Fellowship | Learn2Earn (Cohort 2, Active Fellow)\n• 01-edu Piscine | Learn2Earn (March 2026 boot camp in Go & Unix shell)\n• B.Sc. Mathematics | FUNAAB (2019 - 2024)'
           }]);
           break;
 
