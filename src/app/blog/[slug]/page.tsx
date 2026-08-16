@@ -50,6 +50,8 @@ export async function generateMetadata({ params }: RouteParams): Promise<Metadat
       title: `${post.title} | Abdulyekeen Maadan`,
       description: post.subtitle,
       images: [post.ogImage || '/og/og-image.jpg'],
+      site: '@maadan_dev',
+      creator: '@maadan_dev',
     },
   };
 }
@@ -61,5 +63,41 @@ export default async function BlogPostRoute({ params }: RouteParams) {
     notFound();
   }
 
-  return <BlogPost slug={slug} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": post.title,
+            "description": post.subtitle,
+            "url": `https://www.maadan.dev/blog/${post.slug}`,
+            "datePublished": new Date(post.date).toISOString(),
+            ...(post.lastUpdated
+              ? { "dateModified": new Date(post.lastUpdated).toISOString() }
+              : {}),
+            "author": {
+              "@type": "Person",
+              "@id": "https://www.maadan.dev/#person",
+              "name": "Abdulyekeen Maadan",
+              "url": "https://www.maadan.dev"
+            },
+            "publisher": {
+              "@type": "Person",
+              "@id": "https://www.maadan.dev/#person",
+              "name": "Abdulyekeen Maadan"
+            },
+            "image": post.ogImage || "/og/og-image.jpg",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://www.maadan.dev/blog/${post.slug}`
+            }
+          })
+        }}
+      />
+      <BlogPost slug={slug} />
+    </>
+  );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { WritingPage } from '../../views/WritingPage';
+import { posts } from '../../data/blog';
 
 export const metadata: Metadata = {
   title: 'Writing',
@@ -21,12 +22,56 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
+    card: 'summary_large_image',
     title: 'Writing | Abdulyekeen Maadan',
     description: 'Thoughts on systems, engineering, and personal growth.',
     images: ['/og/og-image.jpg?v=2'],
+    site: '@maadan_dev',
+    creator: '@maadan_dev',
   },
 };
 
 export default function WritingRoute() {
-  return <WritingPage />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Writing — Abdulyekeen Maadan",
+            "description": "Thoughts on systems, engineering, and personal growth.",
+            "url": "https://www.maadan.dev/writing",
+            "author": {
+              "@type": "Person",
+              "@id": "https://www.maadan.dev/#person",
+              "name": "Abdulyekeen Maadan"
+            },
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": posts.map((post, idx) => ({
+                "@type": "ListItem",
+                "position": idx + 1,
+                "item": {
+                  "@type": "BlogPosting",
+                  "headline": post.title,
+                  "description": post.subtitle,
+                  "url": `https://www.maadan.dev/blog/${post.slug}`,
+                  "datePublished": new Date(post.date).toISOString(),
+                  ...(post.lastUpdated ? { "dateModified": new Date(post.lastUpdated).toISOString() } : {}),
+                  "author": {
+                    "@type": "Person",
+                    "@id": "https://www.maadan.dev/#person",
+                    "name": "Abdulyekeen Maadan"
+                  }
+                }
+              }))
+            }
+          })
+        }}
+      />
+      <WritingPage />
+    </>
+  );
 }

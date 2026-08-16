@@ -1,3 +1,4 @@
+"use client";
 import { motion } from 'framer-motion';
 import { education, fellowship } from '../../data/content';
 

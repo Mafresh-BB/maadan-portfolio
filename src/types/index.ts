@@ -21,3 +21,15 @@ export interface SkillCategory {
   title: string;
   skills: string[];
 }
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  subtitle: string;
+  date: string;
+  lastUpdated?: string;
+  readTime: string;
+  category: string;
+  ogImage?: string;
+}
+
