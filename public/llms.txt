@@ -4,16 +4,17 @@
 
 ## About
 
-Abdulyekeen Maadan (brand: Maadan Dev) is a Mathematics graduate and self-taught software developer specializing in AI-augmented product development. He combines deterministic backend engineering in Go with modern React/Next.js frontends and production LLM integrations.
+Abdulyekeen Maadan (brand: Maadan Dev) is a Mathematics graduate and self-taught software developer specializing in AI-augmented product development. He combines deterministic backend engineering in Go and Python with modern React/Next.js frontends and production LLM integrations.
 
-Currently enrolled in the Learn2Earn AI Engineering Fellowship (Cohort 2, July 2026) — a 24-month selective AI engineering program.
+Currently enrolled in the Learn2Earn AI Engineering Fellowship (Cohort 2, July 2026) — a 24-month selective AI engineering program (selected from ~50,000 applicants).
 
 ## Core Stack
 
-- Frontend: React, Next.js (App Router), TypeScript, Tailwind CSS
-- Backend: Go, Supabase
+- Languages: TypeScript, JavaScript, Python, Go
+- Frontend: React, Next.js (App Router), TypeScript, Tailwind CSS, Framer Motion
+- Backend: Go, Python, Supabase (PostgreSQL), REST APIs
 - AI/ML: Gemini API, SSE streaming pipelines, LLM orchestration
-- Deployment: Vercel, Cloudflare
+- Deployment: Vercel, Railway, Cloudflare
 
 ## Notable Projects
 

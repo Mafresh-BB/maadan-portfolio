@@ -56,7 +56,7 @@ export function MetricsBar() {
             maxWidth: 800,
           }}
         >
-          Selected from <span style={{ color: ACCENT, fontWeight: 600 }}>~4,000 applicants</span> for a rigorous 2-year Software Engineering Fellowship — training in systems engineering while active for part-time remote roles and select contracts.
+          Selected from <span style={{ color: ACCENT, fontWeight: 600 }}>~50,000 applicants</span> for the rigorous 2-year Learn2Earn AI Engineering Fellowship — training in systems engineering while active for part-time remote roles and select contracts.
         </motion.p>
       </div>
 

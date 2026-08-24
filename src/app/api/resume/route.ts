@@ -38,7 +38,7 @@ export async function GET() {
     education: [
       {
         institution: fellowship.name,
-        degree: "AI Software Engineering Fellowship",
+        degree: "Learn2Earn AI Engineering Fellowship",
         duration: fellowship.duration,
         description: fellowship.description
       },

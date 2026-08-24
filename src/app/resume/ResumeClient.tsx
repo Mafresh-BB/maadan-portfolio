@@ -22,12 +22,12 @@ const experienceData = [
 
 const educationData = [
   {
-    role: "AI Engineering Fellowship",
+    role: "Learn2Earn AI Engineering Fellowship",
     company: "Learn2Earn · Cohort 2",
     duration: "July 2026 – Present",
     tags: ["learn2earn"],
     category: "ai go",
-    description: "Tuition-free, 24-month systems and AI software engineering program founded by Iyinoluwa Aboyeji (Andela, Flutterwave). Selected through a highly competitive assessment process from ~4,000 Lagos applicants. Located in Yaba, Lagos."
+    description: "Tuition-free, 24-month systems and AI software engineering program founded by Iyinoluwa Aboyeji (Andela, Flutterwave). Selected through a highly competitive assessment process from ~50,000 Lagos applicants. Located in Yaba, Lagos."
   },
   {
     role: "01-edu Piscine",
@@ -143,6 +143,7 @@ export function ResumeClient() {
     if (name.includes('next.js') || name.includes('nextjs')) return 'nextjs';
     if (name.includes('typescript')) return 'typescript';
     if (name.includes('javascript') || name.includes('es6+')) return 'javascript';
+    if (name.includes('python')) return 'python';
     if (name === 'go' || name.includes('go (net') || name.includes('go,')) return 'go';
     if (name.includes('react')) return 'react';
     if (name.includes('tailwind')) return 'tailwind-css';
@@ -221,7 +222,7 @@ export function ResumeClient() {
         case 'summary':
           setTerminalOutput(prev => [...prev, {
             type: 'success',
-            text: 'Abdulyekeen Maadan · Software Developer\nLagos-based developer with a Mathematics background and 2+ years delivering production client applications across the full stack (Next.js, React, TypeScript, Go).\nAI Fellow at the Learn2Earn AI Fellowship (Cohort 2), selected from ~4,000 applicants.'
+            text: 'Abdulyekeen Maadan · Software Developer\nLagos-based developer with a Mathematics background and 2+ years delivering production client applications across the full stack (Next.js, React, TypeScript, Go).\nFellow at the Learn2Earn AI Engineering Fellowship (Cohort 2), selected from ~50,000 applicants.'
           }]);
           break;
 
@@ -242,14 +243,14 @@ export function ResumeClient() {
         case 'skills':
           setTerminalOutput(prev => [...prev, {
             type: 'info',
-            text: 'Languages: TypeScript, JavaScript, Go, HTML5, CSS3\nFrameworks: Next.js, React, Vite, Tailwind CSS, Framer Motion\nBackend & DB: Go (net/http), Supabase (PostgreSQL), REST, SSE Streaming\nAI & Workflows: Gemini API, Prompt Engineering, Git, Vercel, Railway'
+            text: 'Languages: TypeScript, JavaScript, Python, Go, HTML5, CSS3\nFrameworks: Next.js, React, Vite, Tailwind CSS, Framer Motion\nBackend & DB: Go (net/http), Supabase (PostgreSQL), REST, SSE Streaming\nAI & Workflows: Gemini API, Prompt Engineering, Git, Vercel, Railway'
           }]);
           break;
 
         case 'education':
           setTerminalOutput(prev => [...prev, {
             type: 'info',
-            text: '• AI Engineering Fellowship | Learn2Earn (Cohort 2, Active Fellow)\n• 01-edu Piscine | Learn2Earn (March 2026 boot camp in Go & Unix shell)\n• B.Sc. Mathematics | FUNAAB (2019 - 2024)'
+            text: '• Learn2Earn AI Engineering Fellowship | Learn2Earn (Cohort 2, Active Fellow)\n• 01-edu Piscine | Learn2Earn (March 2026 boot camp in Go & Unix shell)\n• B.Sc. Mathematics | FUNAAB (2019 - 2024)'
           }]);
           break;
 
@@ -539,7 +540,7 @@ export function ResumeClient() {
               <strong onClick={(e) => handleTagClick(e, 'typescript')} className={`font-semibold cursor-pointer border-b border-dashed border-white/20 hover:text-accent hover:border-accent transition-colors ${activeTagKey === 'typescript' ? 'bg-accent/10 text-accent border-accent/40 px-1 rounded' : ''}`}>TypeScript</strong>,{' '}
               <strong onClick={(e) => handleTagClick(e, 'go')} className={`font-semibold cursor-pointer border-b border-dashed border-white/20 hover:text-accent hover:border-accent transition-colors ${activeTagKey === 'go' ? 'bg-accent/10 text-accent border-accent/40 px-1 rounded' : ''}`}>Go</strong> &mdash; and builds AI-augmented products using{' '}
               <strong onClick={(e) => handleTagClick(e, 'gemini-api')} className={`font-semibold cursor-pointer border-b border-dashed border-white/20 hover:text-accent hover:border-accent transition-colors ${activeTagKey === 'gemini-api' ? 'bg-accent/10 text-accent border-accent/40 px-1 rounded' : ''}`}>Gemini</strong> and{' '}
-              <strong onClick={(e) => handleTagClick(e, 'sse-streaming')} className={`font-semibold cursor-pointer border-b border-dashed border-white/20 hover:text-accent hover:border-accent transition-colors ${activeTagKey === 'sse-streaming' ? 'bg-accent/10 text-accent border-accent/40 px-1 rounded' : ''}`}>SSE streaming</strong> pipelines. Selected from ~4,000 Lagos applicants for the{' '}
+              <strong onClick={(e) => handleTagClick(e, 'sse-streaming')} className={`font-semibold cursor-pointer border-b border-dashed border-white/20 hover:text-accent hover:border-accent transition-colors ${activeTagKey === 'sse-streaming' ? 'bg-accent/10 text-accent border-accent/40 px-1 rounded' : ''}`}>SSE streaming</strong> pipelines. Selected from ~50,000 Lagos applicants for the{' '}
               <strong onClick={(e) => handleTagClick(e, 'learn2earn')} className={`font-semibold cursor-pointer border-b border-dashed border-white/20 hover:text-accent hover:border-accent transition-colors ${activeTagKey === 'learn2earn' ? 'bg-accent/10 text-accent border-accent/40 px-1 rounded' : ''}`}>Learn2Earn AI Engineering Fellowship</strong> (Cohort 2, 2026&ndash;2028).
             </p>
           </section>

@@ -89,6 +89,7 @@ export default function HomeRoute() {
                   "React",
                   "TypeScript",
                   "JavaScript",
+                  "Python",
                   "Tailwind CSS",
                   "Go",
                   "Supabase",

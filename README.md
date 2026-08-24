@@ -1,19 +1,21 @@
 # Maadan Portfolio
 
-Personal portfolio site for Abdulyekeen Maadan.
+Personal portfolio site for Abdulyekeen Maadan ([maadan.dev](https://maadan.dev)).
 
 ## Live
 
 - https://maadan.dev/
+- https://maadan.dev/resume
 
 ## Highlights
 
-- React 19 + Vite + TypeScript
-- Tailwind CSS v4 styling
-- Animated hero with typewriter text
-- Experience and education timelines with media
-- AI chat widget and smooth section navigation
-- Vercel Analytics + Speed Insights
+- **Next.js 15 (App Router)** + React 19 + TypeScript
+- **Tailwind CSS v4** token-driven styling
+- **Framer Motion** physics-based staggered reveals and ambient spotlight tracking
+- **AI Advocate Terminal** powered by Google AI SDK (`@ai-sdk/google`, `@ai-sdk/react`)
+- **Print & PDF-optimized Resume** with real-time tag highlighting and terminal emulator
+- **Automated Image Optimization** pipeline (WebP conversion via Sharp)
+- **Vercel Analytics + Speed Insights**
 
 ## Getting Started
 
@@ -35,25 +37,28 @@ Build for production:
 npm run build
 ```
 
-Preview the production build:
+Start the production server:
 
 ```bash
-npm run preview
+npm run start
 ```
 
 ## Scripts
 
-- `npm run dev` - Start Vite dev server
-- `npm run build` - Type check and build
-- `npm run lint` - Run ESLint
-- `npm run preview` - Preview the production build
+- `npm run dev` - Start Next.js development server
+- `npm run build` - Optimize WebP images and build production Next.js bundle
+- `npm run optimize-images` - Convert raw imagery to WebP via Sharp
+- `npm run lint` - Run ESLint checks
+- `npm run start` - Start production server
 
 ## Project Structure
 
-- `src/components/sections` - Page sections (Hero, About, Experience, etc.)
-- `src/components/ui` - Reusable UI primitives
-- `src/data/content.ts` - Typed content source
-- `public/` - Static assets (images, resume, OG image)
+- `src/app/` - Next.js App Router routes (`/`, `/resume`, `/blog`, `/writing`, `/api`)
+- `src/components/sections/` - Major landing page sections (Hero, MetricsBar, CaseStudies, Method, Education, Contact)
+- `src/components/ui/` - Interactive UI primitives (DeveloperTerminal, StatusTicker, Loader)
+- `src/data/` - Typed structured data (`content.ts`, `ai-prompt.ts`, `blog.ts`)
+- `public/` - Static assets, generated WebP images, PDF resumes, `llms.txt`
+- `.agents/skills/` - Custom agent evaluation and workflow skills
 
 ## Deployment
 

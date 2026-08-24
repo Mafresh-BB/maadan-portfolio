@@ -4,13 +4,13 @@ import { personalInfo, projects, skillCategories, education, fellowship } from '
 
 export const metadata: Metadata = {
   title: 'Abdulyekeen Maadan · Frontend & Go Developer — Resume',
-  description: 'Mathematics graduate turned software developer. AI Software Engineering Fellow at Learn2Earn. Ships Next.js, React, TypeScript, and Go applications.',
+  description: 'Mathematics graduate turned software developer. Fellow at the Learn2Earn AI Engineering Fellowship. Ships Next.js, React, TypeScript, and Go applications.',
   alternates: {
     canonical: 'https://www.maadan.dev/resume',
   },
   openGraph: {
     title: 'Abdulyekeen Maadan · Frontend & Go Developer — Resume',
-    description: 'Mathematics graduate turned software developer. AI Software Engineering Fellow at Learn2Earn. Ships Next.js, React, TypeScript, and Go applications.',
+    description: 'Mathematics graduate turned software developer. Fellow at the Learn2Earn AI Engineering Fellowship. Ships Next.js, React, TypeScript, and Go applications.',
     type: 'website',
     url: 'https://www.maadan.dev/resume',
     siteName: 'Maadan Dev',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Abdulyekeen Maadan · Frontend & Go Developer — Resume',
-    description: 'Mathematics graduate turned software developer. AI Software Engineering Fellow at Learn2Earn. Ships Next.js, React, TypeScript, and Go applications.',
+    description: 'Mathematics graduate turned software developer. Fellow at the Learn2Earn AI Engineering Fellowship. Ships Next.js, React, TypeScript, and Go applications.',
     images: ['/og/og-image.jpg?v=2'],
     site: '@maadan_dev',
     creator: '@maadan_dev',
@@ -98,8 +98,8 @@ export default function ResumePage() {
           Software developer with a Mathematics background and 2+ years
           delivering production applications for real clients. Ships across the
           full stack — Next.js, React, TypeScript, Go — and builds AI-augmented
-          products using Gemini and SSE streaming pipelines. AI Software Engineering
-          Fellow at Learn2Earn (Cohort 2, selected from ~4,000 Lagos applicants).
+          products using Gemini and SSE streaming pipelines. Fellow at the
+          Learn2Earn AI Engineering Fellowship (Cohort 2, selected from ~50,000 Lagos applicants).
         </p>
 
         <h2>Contact</h2>
