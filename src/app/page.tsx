@@ -9,14 +9,14 @@ import { WritingPreviewSection } from '../components/sections/WritingPreviewSect
 import { ContactSection } from '../components/sections/ContactSection';
 
 export const metadata: Metadata = {
-  title: 'Abdulyekeen Maadan | Software Developer — Lagos, Nigeria',
+  title: 'Yaqeen Maadan | Software Developer — Lagos, Nigeria',
   description:
     'Software developer based in Lagos. I build production software for real clients using Next.js, React, TypeScript, and Go. Open for freelance and part-time remote work.',
   alternates: {
     canonical: 'https://www.maadan.dev/',
   },
   openGraph: {
-    title: 'Abdulyekeen Maadan — Software Developer',
+    title: 'Yaqeen Maadan — Software Developer',
     description:
       'Software developer based in Lagos. I build production software for real clients using Next.js, React, TypeScript, and Go. Open for freelance and part-time remote work.',
     type: 'website',
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
         url: '/og/og-image.jpg?v=2',
         width: 1200,
         height: 630,
-        alt: 'Portfolio preview of Abdulyekeen Maadan',
+        alt: 'Portfolio preview of Yaqeen Maadan',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Abdulyekeen Maadan | Software Developer',
+    title: 'Yaqeen Maadan | Software Developer',
     description:
       'Software developer based in Lagos. I build production software for real clients using Next.js, React, TypeScript, and Go. Open for freelance and part-time remote work.',
     images: ['/og/og-image.jpg?v=2'],
@@ -56,7 +56,7 @@ export default function HomeRoute() {
                 "@id": "https://www.maadan.dev/#website",
                 "url": "https://www.maadan.dev",
                 "name": "Maadan Dev",
-                "alternateName": ["Abdulyekeen Maadan", "Maadan", "Yekeen"],
+                "alternateName": ["Abdulyekeen Maadan", "Yaqeen Maadan", "Maadan", "Yekeen"],
                 "publisher": {
                   "@id": "https://www.maadan.dev/#person"
                 }
@@ -64,7 +64,7 @@ export default function HomeRoute() {
               {
                 "@type": "Person",
                 "@id": "https://www.maadan.dev/#person",
-                "name": "Abdulyekeen Maadan",
+                "name": "Yaqeen Maadan",
                 "description": "Full-stack developer based in Lagos, Nigeria. Builds production AI tools and web applications using Next.js, React, TypeScript, and Go. Open for remote freelance and part-time engagements.",
                 "jobTitle": "Software Developer",
                 "url": "https://www.maadan.dev",
@@ -104,7 +104,7 @@ export default function HomeRoute() {
       />
       {/* Server-rendered content for crawlers — matches meta description */}
       <div className="sr-only">
-        <h1>Abdulyekeen Maadan — Software Developer, Lagos, Nigeria</h1>
+        <h1>Yaqeen Maadan — Software Developer, Lagos, Nigeria</h1>
         <p>
           Software developer based in Lagos. I build production software for real
           clients using Next.js, React, TypeScript, and Go. Open for freelance and

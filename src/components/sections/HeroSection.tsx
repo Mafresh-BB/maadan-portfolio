@@ -192,7 +192,7 @@ export function HeroSection({ visible = true }: HeroSectionProps) {
         />
 
         <StaggerName
-          text="ABDULYEKEEN"
+          text="YAQEEN"
           color="rgba(250,250,250,0.95)"
           style={nameStyle}
           delay={120}

@@ -60,7 +60,7 @@ export function Navigation() {
         <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80" data-hover>
           <Image
             src="/logo_horizontal.png"
-            alt="ABDULYEKEEN MAADAN"
+            alt="YAQEEN MAADAN"
             width={180}
             height={26}
             priority
