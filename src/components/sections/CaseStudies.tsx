@@ -302,6 +302,7 @@ function FeaturedRow({ project, isVideo, isReversed, num, idx }: FeaturedRowProp
           {isVideo ? (
             <video
               src={project.image}
+              poster="/images/nextrole.webp"
               autoPlay muted loop playsInline
               preload="metadata"
               className="w-full h-full object-cover"

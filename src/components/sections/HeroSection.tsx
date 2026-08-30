@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from 'react';
+import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { personalInfo } from '../../data/content';
 import StatusTicker from '../ui/StatusTicker';
@@ -252,10 +253,8 @@ export function HeroSection({ visible = true }: HeroSectionProps) {
             <div style={{ width: 20, height: 1, background: ACCENT }} />
             View Work
           </a>
-          <a
-            href={personalInfo.resumePdf}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/resume"
             data-hover
             style={{
               fontFamily: "'Barlow Condensed', sans-serif",
@@ -269,7 +268,7 @@ export function HeroSection({ visible = true }: HeroSectionProps) {
             }}
           >
             Résumé ↗
-          </a>
+          </Link>
         </motion.div>
       </motion.div>
 
